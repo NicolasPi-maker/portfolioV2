@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import profile from '../assets/img/rouned-profile.png';
+import MyButton from '../components/MyButton.astro';
+import BottomNavBar from "../components/BottomNavBar.astro";
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<section id="home" class="p-8 h-screen">
+			<article>
+
+			</article>
+			<h1 class="text-5xl alatsi-regular ">Hello I'm <span class="text-gradient alatsi-regular">Nicolas</span><br> web developer</h1>
+			<div class="flex gap-4 my-6">
+				<MyButton label="Get in touch" />
+				<MyButton label="Download my cv" outlined={true} />
+			</div>
+			<div class="m-auto my-16 profile-pic-wrapper relative flex justify-center">
+				<Image src={profile} alt="a photo of me, who smalling in black and white colors" class="rounded-full object-cover relative" />
+			</div>
+			<div class="flex flex-col gap-6">
+				<p>Passionate about technology and with a strong foundation in web development, I am a motivated and curious individual who is always eager to learn and improve.</p>
+				<p>With a solid understanding of modern web technologies, I bring enthusiasm and a commitment to excellence in every project.</p>
+			</div>
+		</section>
+		<BottomNavBar client:load />
+		<section id="about" class="w-full h-screen bg-primary-50 flex flex-col gap-4 p-6">
+			<article class="my-4">
+				<div class="flex gap-4 w-full">
+					<div class="box full-box center border w-1/2">1</div>
+					<div class="flex center flex-auto flex-col gap-4">
+						<div class="border box center w-full h-1/2 bg-white">2</div>
+						<div class="border center box w-full h-1/2 bg-white">3</div>
+					</div>
+				</div>
+				<div class="center border half-box box my-4">4</div>
+				<div class="flex gap-4 w-full">
+					<div class="flex flex-col gap-4 w-1/2">
+						<div class="half-box box border w-full center">5</div>
+						<div class="flex gap-4 w-full">
+							<div class="half-box box border center w-1/2">6</div>
+							<div class="flex flex-col gap-4 w-1/2 relative">
+								<div class="border quarter-box box center">7</div>
+								<div class="w-full half-box box border center flex-grow absolute bottom-0 left-0 box-ten">10</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex-col flex gap-4 w-1/2">
+						<div class="quarter-box box border w-full center">8</div>
+						<div class="border half-box box w-full center">9</div>
+					</div>
+				</div>
+			</article>
+			<MyButton class="w-1/2 m-auto" label="Download my CV"></MyButton>
+		</section>
+		<section id="work">
+		</section>
+		<section id="engagements">
+		</section>
+		<section id="contact">
+		</section>
+	</main>
+</Layout>
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Alatsi&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+	.alatsi-regular {
+		font-family: "Alatsi", sans-serif;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	.roboto-regular {
+		font-family: "Roboto", sans-serif;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	.roboto-bold {
+		font-family: "Roboto", sans-serif;
+		font-weight: 700;
+		font-style: normal;
+	}
+
+	.text-gradient {
+		background-image: var(--primary-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0;
+	}
+
+	.profile-pic-wrapper {
+		width: 300px;
+		height: 300px;
+	}
+
+	.profile-pic-wrapper::after {
+		content: '';
+		position: absolute;
+		padding: 20px;
+		border-radius: 50%;
+		top: 50%;
+		right: 50%;
+		transform: translate(50%, -50%);
+		z-index: -1;
+		background: var(--primary-gradient);
+		filter: blur(35px);
+		opacity: 0.5;
+	}
+
+	.profile-pic-wrapper::after {
+		width: 130%;
+		height: 130%;
+	}
+
+	.box {
+		background-color: white;
+		box-shadow: rgba(99, 99, 99, 0.2) 0 2px 4px 0;
+		border-radius: 20px;
+	}
+
+	.full-box {
+		height: 250px;
+	}
+
+	.half-box {
+		height: 125px;
+		background-color: white;
+	}
+
+	.quarter-box {
+		height: 63px;
+		background-color: white;
+	}
+
+	.center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.flex-grow {
+		flex-grow: 1;
+	}
+
+	.box-ten {
+		width: 340%;
+		height: 45px;
+	}
+
+</style>
