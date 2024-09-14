@@ -5,8 +5,13 @@ import pwa from '../assets/img/pwa.svg'
 import profile from '../assets/img/rouned-profile.png';
 import VueIcon from '../assets/3d/vue-3d.png';
 import LaravelIcon from '../assets/3d/laravel-3d.png';
-import MyButton from '../components/MyButton.astro';
-import BottomNavBar from "../components/BottomNavBar.astro";
+import MyButton from '../components/shared/MyButton.astro';
+import BottomNavBar from "../components/nav/BottomNavBar.astro";
+import ProjectCard from "../components/project/ProjectCard.astro";
+import data from "../static/projects.json";
+import {ProjectInterface} from "../interface/project.interface";
+
+const projectList = data.projects as [ProjectInterface];
 ---
 
 <Layout title="Welcome to Astro.">
@@ -21,14 +26,14 @@ import BottomNavBar from "../components/BottomNavBar.astro";
 				<MyButton label="Download my cv" outlined={true} />
 			</div>
 			<div class="m-auto my-14 profile-pic-wrapper relative flex justify-center">
-				<Image src={profile} alt="a photo of me, who smalling in black and white colors" class="rounded-full object-cover relative" />
+				<Image src={profile} alt="a photo of me, who smalling in black and white colors" class="rounded-full relative" />
 			</div>
 			<div class="flex flex-col gap-6 roboto-regular">
 				<p>Passionate about technology and with a strong foundation in web development, I am a motivated and curious individual who is always eager to learn and improve.</p>
 				<p>With a solid understanding of modern web technologies, I bring enthusiasm and a commitment to excellence in every project.</p>
 			</div>
 		</section>
-		<BottomNavBar client:load />
+		<BottomNavBar />
 		<section class="min-h-dvh p-8 flex center flex-col gap-10 bg-primary-50 m-auto" id="about">
 			<div class="grid grid-cols-4 gap-4">
 				<div class="box glass center col-span-2 row-span-4 grid grid-cols-2 grid-rows-4 gap-4 z-10">
@@ -117,8 +122,22 @@ import BottomNavBar from "../components/BottomNavBar.astro";
 			</div>
 			<MyButton customClass="w-full" label="See more on my CV"></MyButton>
 		</section>
-		<section class="h-screen p-8 flex flex-col gap-10" id="work">
-			<!--<h2 class="text-4xl alatsi-regular">My recent <span class="text-gradient">work</span></h2>-->
+		<section class="min-h-dvh p-8" id="work">
+			<h2 class="text-4xl alatsi-regular mb-20">My recent <span class="text-gradient">work</span></h2>
+			<ul class="flex flex-col gap-20">
+				{projectList.map((project) => {
+					return (<li>
+						<ProjectCard
+							url={project.url}
+							state={project.state}
+							logoPath={project.logoPath}
+							logoAlt={project.logoAlt}
+							title={project.title}
+							description={project.description}
+						/>
+					</li>)
+				})}
+			</ul>
 		</section>
 		<section id="engagements"  class="h-screen p-8 bg-primary-50">
 		</section>

@@ -1,0 +1,50 @@
+---
+import {ucFirst} from "../../../tools/string.tools";
+
+interface Props {
+    state: string,
+    url?: string,
+}
+
+const {state, url} = Astro.props;
+
+import SvgInProgress from './icon/InProgressState.astro';
+import SvgPrivate from './icon/PrivateState.astro';
+import SvgArchived from './icon/ArchivedState.astro';
+import SvgDefault from './icon/OnlineState.astro';
+
+const getSvgComponent = (state) => {
+    switch (state) {
+        case 'in progress':
+            return SvgInProgress;
+        case 'private':
+            return SvgPrivate;
+        case 'archived':
+            return SvgArchived;
+        default:
+            return SvgDefault;
+    }
+}
+const SvgComponent = getSvgComponent(state);
+const setVariant = (state) => {
+    switch (state) {
+        case 'in progress':
+            return 'bg-yellow-200 text-yellow-700';
+        case 'private':
+            return 'bg-red-200 text-red-700';
+        case 'archived':
+            return 'bg-blue-200 text-blue-700';
+        default:
+            return 'bg-green-200 text-green-700';
+    }
+}
+
+const HtmlElement = url ? 'a' : 'div';
+
+---
+
+<HtmlElement class={`px-4 py-1 flex items-center rounded-3xl gap-2 justify-center w-max ${setVariant(state)}`} {...(url && { href: url })}>
+    <p class="text-sm">{ ucFirst(state) }</p>
+    <SvgComponent />
+</HtmlElement>
+

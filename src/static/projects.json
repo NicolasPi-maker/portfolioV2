@@ -1,0 +1,52 @@
+{
+  "projects": [
+    {
+      "title": "Lorem Ispum",
+      "logoPath": "../../assets/project/logos/logo1.jpg",
+      "logoAlt": "it's just lorem",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur culpa dolor dolore itaque libero voluptatem.",
+      "state": "private",
+      "url": null
+    },
+    {
+      "title": "Lorem Ispum",
+      "logoPath": "../../assets/project/logos/logo2.png",
+      "logoAlt": "it's just lorem",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur culpa dolor dolore itaque libero voluptatem.",
+      "state": "online",
+      "url": null
+    },
+    {
+      "title": "Lorem Ispum",
+      "logoPath": "../../assets/project/logos/logo3.png",
+      "logoAlt": "it's just lorem",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur culpa dolor dolore itaque libero voluptatem.",
+      "state": "archived",
+      "url": null
+    },
+    {
+      "title": "Lorem Ispum",
+      "logoPath": "../../assets/project/logos/logo4.webp",
+      "logoAlt": "it's just lorem",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur culpa dolor dolore itaque libero voluptatem.",
+      "state": "online",
+      "url": null
+    },
+    {
+      "title": "Lorem Ispum",
+      "logoPath": "../../assets/project/logos/logo5.jpg",
+      "logoAlt": "it's just lorem",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur culpa dolor dolore itaque libero voluptatem.",
+      "state": "private",
+      "url": null
+    },
+    {
+      "title": "Lorem Ispum",
+      "logoPath": "../../assets/project/logos/logo6.png",
+      "logoAlt": "it's just lorem",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur culpa dolor dolore itaque libero voluptatem.",
+      "state": "in progress",
+      "url": null
+    }
+  ]
+}
