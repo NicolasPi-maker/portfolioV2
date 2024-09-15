@@ -1,0 +1,67 @@
+---
+import {Image} from "astro:assets";
+interface Props {
+    title: string,
+    description: string,
+    imagePath: string,
+    imageAlt: string,
+    reversed: boolean,
+    auraColor: string,
+    customClass: string,
+}
+
+const {
+    title,
+    description,
+    imagePath,
+    imageAlt,
+    reversed= false,
+    auraColor = 'red',
+    customClass
+} = Astro.props;
+
+const image = import(imagePath);
+---
+
+<div class=`${reversed ? 'flex flex-row-reverse' : 'flex'} gap-4 items-center bg-white rounded-xl p-4`>
+    <div class="relative h-full w-full image3d-wrapper z-0">
+        <Image src={image} alt={imageAlt} class=`image3d ${customClass}` />
+    </div>
+    <div class="flex flex-col gap-2">
+        <h2 class="font-bold">{ title }</h2>
+        <p class="text-sm">{ description }</p>
+    </div>
+</div>
+
+<style define:vars={{auraColor}}>
+    .image3d {
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      max-width: 120px;
+    }
+
+    .image3d-wrapper::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      z-index: -1;
+      filter: blur(35px);
+      width: 100%;
+      height: 100%;
+      opacity: 0.5;
+      background: var(--auraColor);
+    }
+
+    .rocket {
+      transform: translate(50%, -60%) rotate(21deg);
+    }
+
+    .security {
+      transform: translate(50%, -75%);
+    }
+</style>

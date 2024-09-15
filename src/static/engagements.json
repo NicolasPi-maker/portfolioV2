@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "imagePath":"../../assets/3d/rocket.png",
+      "imageAlt":"test",
+      "title":"Lorem ipsum",
+      "customClass":"rocket",
+      "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. consectetur adipisicing elit.",
+      "auraColor":"#FC574D",
+      "reversed": false
+    },
+    {
+      "imagePath":"../../assets/3d/security.png",
+      "imageAlt":"test",
+      "title":"Lorem ipsum",
+      "customClass":"security",
+      "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. consectetur adipisicing elit.",
+      "auraColor":"#DB2EFA",
+      "reversed": true
+    },
+    {
+      "imagePath":"../../assets/3d/rate.png",
+      "imageAlt":"test",
+      "title":"Lorem ipsum",
+      "customClass":null,
+      "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. consectetur adipisicing elit.",
+      "auraColor":"#EDB82B",
+      "reversed": false
+    },
+    {
+      "imagePath":"../../assets/3d/green.png",
+      "imageAlt":"test",
+      "title":"Lorem ipsum",
+      "customClass":null,
+      "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. consectetur adipisicing elit.",
+      "auraColor":"#79FDC2",
+      "reversed": true
+    }
+  ]
+}

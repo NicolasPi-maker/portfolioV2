@@ -41,9 +41,21 @@ const setVariant = (state) => {
 
 const HtmlElement = url ? 'a' : 'div';
 
+function isUrlValid(str) {
+    const pattern = new RegExp(
+        '^(https?:\\/\\/)?' + // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR IP (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+        '(\\#[-a-z\\d_]*)?$', // fragment locator
+        'i'
+    );
+    return pattern.test(str) ? str : '#';
+}
 ---
 
-<HtmlElement class={`px-4 py-1 flex items-center rounded-3xl gap-2 justify-center w-max ${setVariant(state)}`} {...(url && { href: url })}>
+<HtmlElement class={`px-4 py-1 flex items-center rounded-3xl gap-2 justify-center w-max ${setVariant(state)}`} {...(url && { href: isUrlValid(url) })}>
     <p class="text-sm">{ ucFirst(state) }</p>
     <SvgComponent />
 </HtmlElement>

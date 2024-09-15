@@ -1,8 +1,9 @@
 ---
 const { label, outlined, customClass } = Astro.props;
 ---
-<button type="button" class=`rounded-xl py-2 px-6 ${outlined ? 'border border-primary text-primary' : 'bg-primary text-white'} ${customClass ? customClass : ''}` title={label} >
+<button type="button" class=`text center justify-center flex items-center gap-4 rounded-xl py-2 px-4 ${outlined ? 'border border-primary text-primary' : 'bg-primary text-white'} ${customClass ? customClass : ''}` title={label} >
     { label }
+    <slot />
 </button>
 
 

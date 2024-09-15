@@ -1,5 +1,5 @@
 {
-  "projects": [
+  "data": [
     {
       "title": "Lorem Ispum",
       "logoPath": "../../assets/project/logos/logo1.jpg",
@@ -14,7 +14,7 @@
       "logoAlt": "it's just lorem",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur culpa dolor dolore itaque libero voluptatem.",
       "state": "online",
-      "url": null
+      "url": "https://www.danger/index.php"
     },
     {
       "title": "Lorem Ispum",
