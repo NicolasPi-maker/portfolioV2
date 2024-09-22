@@ -1,0 +1,7 @@
+---
+const { label, outlined, customClass, url, ariaLabel, role, target, downloadable, fileName = "Pinier_Nicolas_cv" } = Astro.props;
+---
+<a href={url} {...(downloadable && { download: fileName })} target={target} aria-label={ariaLabel} role={role} class=`text center justify-center flex items-center gap-4 rounded-xl py-2 px-4 ${outlined ? 'border border-primary text-primary' : 'bg-primary text-white'} ${customClass ? customClass : ''}`>
+    { label }
+    <slot />
+</a>

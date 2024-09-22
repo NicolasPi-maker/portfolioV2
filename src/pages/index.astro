@@ -6,6 +6,7 @@ import profile from '../assets/img/rouned-profile.png';
 import VueIcon from '../assets/3d/vue-3d.png';
 import LaravelIcon from '../assets/3d/laravel-3d.png';
 import MyButton from '../components/shared/MyButton.astro';
+import LinkButton from '../components/shared/LinkButton.astro';
 import BottomNavBar from "../components/nav/BottomNavBar.astro";
 import ProjectCard from "../components/project/ProjectCard.astro";
 import projects from "../static/projects.json";
@@ -27,8 +28,8 @@ const engagementList = engagements.data as [EngagementInterface];
 			</article>
 			<h1 class="text-5xl alatsi-regular ">Hello I'm <span class="text-gradient alatsi-regular">Nicolas</span><br> web developer</h1>
 			<div class="flex gap-4 my-6">
-				<MyButton label="Get in touch" />
-				<MyButton label="Download my CV" customClass="text-gradient btn-grad" outlined={true}>
+				<LinkButton url="/contact" aria-label="redirect to contact form" role="link" label="Get in touch" />
+				<LinkButton downloadable={true} target="_blank" url="Pinier_Nicolas_cv.pdf" role="link" aria-label="download Pinier nicolas cv in pdf format" label="Download my CV" outlined={true}>
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 14">
 						<rect width="14" height="14" fill="none" />
 						<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -36,17 +37,17 @@ const engagementList = engagements.data as [EngagementInterface];
 							<path d="M7 13.5a6.5 6.5 0 1 0 0-13a6.5 6.5 0 0 0 0 13" />
 						</g>
 					</svg>
-				</MyButton>
+				</LinkButton>
 			</div>
 			<div class="m-auto my-14 profile-pic-wrapper relative flex justify-center">
-				<Image src={profile} alt="a photo of me, who smalling in black and white colors" class="rounded-full relative" />
+				<Image src={profile} alt="me who smalling in black and white colors" class="rounded-full relative" />
 			</div>
 			<div class="flex flex-col gap-6 roboto-regular">
 				<p>Passionate about technology and with a strong foundation in web development, I am a motivated and curious individual who is always eager to learn and improve.</p>
 				<p>With a solid understanding of modern web technologies, I bring enthusiasm and a commitment to excellence in every project.</p>
 			</div>
 		</section>
-		<!--<BottomNavBar />-->
+		<BottomNavBar />
 	</header>
 	<main>
 		<section class="min-h-dvh p-8 flex center flex-col gap-10 bg-primary-50 m-auto" id="about">
@@ -84,13 +85,13 @@ const engagementList = engagements.data as [EngagementInterface];
 				</div>
 				<div class="box center col-span-2 row-span-1 overflow-hidden quarter-box">
 					<div class="w-1/2 h-full center rounded-b-2xl rounded-t-0 border-r shadow">
-						<p class="text-sm text-gradient text-center">Hire Me</p>
+						<a href="/contact" aria-label="redirect to contact form" role="link" class="text-sm text-gradient text-center">Hire Me</a>
 					</div>
 					<div class="w-1/2 center">
-						<p class="rounded-3xl px-2 py-1 bg-primary text-white text-sm relative">
+						<a href="/contact" aria-label="redirect to contact form" role="link" class="rounded-3xl px-2 py-1 bg-primary text-white text-sm relative">
 							Say hello
 							<span id="triangle-code" class="absolute -right-2 bottom-0"></span>
-						</p>
+						</a>
 					</div>
 				</div>
 				<div class="box col-span-2 row-span-2 center">
@@ -135,7 +136,7 @@ const engagementList = engagements.data as [EngagementInterface];
 					</svg>
 				</div>
 			</div>
-			<MyButton label="See more on my CV">
+			<LinkButton downloadable={true} target="_blank" url="Pinier_Nicolas_cv.pdf" role="link" aria-label="download Pinier nicolas cv in pdf format" label="See more on my CV">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 14">
 					<rect width="14" height="14" fill="none" />
 					<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -143,7 +144,7 @@ const engagementList = engagements.data as [EngagementInterface];
 						<path d="M7 13.5a6.5 6.5 0 1 0 0-13a6.5 6.5 0 0 0 0 13" />
 					</g>
 				</svg>
-			</MyButton>
+			</LinkButton>
 		</section>
 		<section class="min-h-dvh p-8 flex flex-col gap-20" id="work">
 			<h2 class="text-4xl alatsi-regular">My recent <span class="text-gradient">work</span></h2>
@@ -164,7 +165,7 @@ const engagementList = engagements.data as [EngagementInterface];
 			<div class="flex flex-col gap-10 items-center mb-10">
 				<h3 class="font-bold text-xl">Interested to <span class="text-gradient">collaborate</span> together ?</h3>
 				<p class="text-center">I'm an adventurer always on the lookout for new quests and opportunities. Let's talk about our future project.</p>
-				<MyButton outlined={true} label="Start a conversation">
+				<LinkButton url="/contact" aria-label="redirect to contact form" role="link" outlined={true} label="Start a conversation">
 					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 36 36">
 						<rect width="36" height="36" fill="none" />
 						<path fill="currentColor" d="M18 2.5c-8.82 0-16 6.28-16 14s7.18 14 16 14a18 18 0 0 0 4.88-.68l5.53 3.52a1 1 0 0 0 1.54-.84v-6.73a13 13 0 0 0 4-9.27C34 8.78 26.82 2.5 18 2.5m10.29 22.11a1 1 0 0 0-.32.73v5.34l-4.38-2.79a1 1 0 0 0-.83-.11a16 16 0 0 1-4.76.72c-7.72 0-14-5.38-14-12s6.28-12 14-12s14 5.38 14 12a11.08 11.08 0 0 1-3.71 8.11" class="clr-i-outline clr-i-outline-path-1" />
@@ -173,10 +174,10 @@ const engagementList = engagements.data as [EngagementInterface];
 						<path fill="currentColor" d="M11.28 12.5h13.44a1 1 0 0 0 0-2H11.28a1 1 0 0 0 0 2" class="clr-i-outline clr-i-outline-path-4" />
 						<path fill="none" d="M0 0h36v36H0z" />
 					</svg>
-				</MyButton>
+				</LinkButton>
 			</div>
 		</section>
-		<section id="engagements"  class="p-8 bg-primary-50 flex flex-col gap-16">
+		<section id="engagements"  class="p-8 bg-primary-50 flex flex-col gap-16 pb-24">
 			<ul class="flex flex-col gap-16 flex-1 mb-36">
 				{engagementList.map((engagement) => {
 					return (<li class="flex">
@@ -199,9 +200,11 @@ const engagementList = engagements.data as [EngagementInterface];
 			<div class="cross-section-block flex-col flex border rounded-xl bg-white shadow p-8 justify-center items-center absolute gap-12">
 				<div class="flex flex-col gap-6 flex-1">
 					<h2 class="alatsi-regular text-3xl text-center">Start project</h2>
-					<p class="text-sm text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean imperdiet quam nibh, a condimentum nisl gravida vehicula. Donec eu tortor nibh.</p>
+					<p class="text-sm text-center">
+						Each project is a unique adventure, and my role is to support and guide each adventurer on their path to success, step by step, challenge after challenge, quest after quest.
+					</p>
 				</div>
-				<MyButton label="Start a new adventure">
+				<LinkButton url="/contact" aria-label="redirect to contact form" role="link" label="Start a new adventure">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20">
 						<rect width="20" height="20" fill="none" />
 						<g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
@@ -211,14 +214,14 @@ const engagementList = engagements.data as [EngagementInterface];
 							<path d="m5.121 13.533l-2.823 2.834a.5.5 0 0 0 .001.707l.709.706a.5.5 0 0 0 .707-.001l2.823-2.834l.709.706l-2.824 2.834a1.5 1.5 0 0 1-2.12.003l-.71-.705a1.5 1.5 0 0 1-.003-2.122l2.823-2.833z" />
 						</g>
 					</svg>
-				</MyButton>
+				</LinkButton>
 			</div>
 		</div>
 		<h2 class="alatsi-regular text-3xl text-center">Or</h2>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean imperdiet quam nibh, a condimentum nisl gravida vehicula. Donec eu tortor nibh.
+		<p class="text-sm">
+			Feel free to contact me or connect with me on my networks to learn more about me, and who knows, maybe we’ll get the chance to chat or work together one day.
 		</p>
-		<Image id="footer-profile-pic" src={profile} alt="a photo of me, who smalling in black and white colors" class="rounded-full relative" />
+		<Image id="footer-profile-pic" src={profile} alt="me who smalling in black and white colors" class="rounded-full relative" />
 		<SocialNetwork />
 	</footer>
 </Layout>
@@ -381,7 +384,7 @@ const engagementList = engagements.data as [EngagementInterface];
 	}
 
 	.cross-section-block {
-		transform: translateY(calc(-100%));
+		transform: translateY(calc(-50% + -11rem));
 	}
 
 	@keyframes floating {

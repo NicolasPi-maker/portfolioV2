@@ -3,36 +3,36 @@
     {
       "imagePath":"../../assets/3d/rocket.png",
       "imageAlt":"test",
-      "title":"Lorem ipsum",
-      "customClass":"rocket",
-      "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. consectetur adipisicing elit.",
+      "title":"Innovation",
+      "customClass":"3d rocket drop of from a box",
+      "description":"I use modern and innovative technologies to stay at the forefront of my expertise.",
       "auraColor":"#FC574D",
       "reversed": false
     },
     {
       "imagePath":"../../assets/3d/security.png",
-      "imageAlt":"test",
-      "title":"Lorem ipsum",
+      "imageAlt":"3d mobile phone show a secure authentification on his screen",
+      "title":"Security",
       "customClass":"security",
-      "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. consectetur adipisicing elit.",
+      "description":"Application and user security is at the heart of my concerns in every project.",
       "auraColor":"#DB2EFA",
       "reversed": true
     },
     {
       "imagePath":"../../assets/3d/rate.png",
-      "imageAlt":"test",
-      "title":"Lorem ipsum",
+      "imageAlt":"3d meter with spin at maximum with a thunderbolt",
+      "title":"Performance",
       "customClass":null,
-      "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. consectetur adipisicing elit.",
+      "description":"I focus my development on speed and performance to ensure an optimal user experience.",
       "auraColor":"#EDB82B",
       "reversed": false
     },
     {
       "imagePath":"../../assets/3d/green.png",
-      "imageAlt":"test",
-      "title":"Lorem ipsum",
+      "imageAlt":"2 hands who hold the earth planet in 3d",
+      "title":"Green IT",
       "customClass":null,
-      "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. consectetur adipisicing elit.",
+      "description":"I design solutions by optimizing resources to reduce the ecological footprint, following a Green IT approach.",
       "auraColor":"#79FDC2",
       "reversed": true
     }
