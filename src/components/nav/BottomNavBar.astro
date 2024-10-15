@@ -1,53 +1,39 @@
 ---
-import { Image } from 'astro:assets';
-import HomeIcon from '../../assets/icon/home.svg'
+import NavIcon from './NavIcon.astro';
+
 const navItemList = [
     {
         label: 'Home',
         value: 'home',
-        icon: import('../../assets/icon/home.svg'),
     },
     {
-        label: 'About me',
+        label: 'About',
         value: 'about',
-        iconFile: import('../../assets/icon/user.svg'),
     },
     {
-        label: 'Recent work',
+        label: 'Works',
         value: 'work',
-        icon: import('../../assets/icon/work.svg'),
     },
     {
         label: 'Engagements',
         value: 'engagements',
-        iconFile: import('../../assets/icon/rocket.svg'),
     },
     {
         label: 'Contact',
         value: 'contact',
-        iconFile: import('../../assets/icon/contact.svg'),
     },
 ];
 
-const homeIcon = import('../../assets/icon/contact.svg')
 ---
 <nav class="nav-wrapper mt-8 fixed bottom-5 right-1/2 z-50">
     <ul class="glass w-full py-1 px-4 flex justify-around gap-2 rounded-3xl items-center">
-        <li class="py-1 px-3 rounded-full active">
-            <Image src={HomeIcon} alt="message bubble to represent contact section" />
-        </li>
-        <li class="py-1 px-3 rounded-full">
-            <Image src={HomeIcon} alt="message bubble to represent contact section" />
-        </li>
-        <li class="py-1 px-3 rounded-full">
-            <Image src={HomeIcon} alt="message bubble to represent contact section" />
-        </li>
-        <li class="py-1 px-3 rounded-full">
-            <Image src={HomeIcon} alt="message bubble to represent contact section" />
-        </li>
-        <li class="py-1 px-3 rounded-full">
-            <Image src={HomeIcon} alt="message bubble to represent contact section" />
-        </li>
+        {navItemList.map((item) => (
+            <li class=`rounded-full items-center justify-center w-12 nav-item flex flex-col`>
+                <a href={`#${item.value}`} class="py-1 px-3 flex gap-2">
+                    <NavIcon icon={item.value} />
+                </a>
+            </li>
+        ))}
     </ul>
 </nav>
 
@@ -62,14 +48,119 @@ const homeIcon = import('../../assets/icon/contact.svg')
     .active {
       color: white;
       background-color: var(--primary);
+      box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
     }
 
     .nav-wrapper {
       transform: translate(50%, -50%);
     }
+
+    .nav-item {
+      transition: background-color .3s, color .2s;
+    }
+
+    .nav-item:hover {
+      background-color: var(--primary);
+    }
+
+    .nav-item:hover a {
+      transition: color .3s;
+    }
+
+    .nav-item:hover a {
+      color: white;
+    }
 </style>
 
-<script>
-    console.log('Welcome, browser console!');
+<script lang="js">
+    window.onload = () => {
+        // Get all nav items
+        const navItems = document.getElementsByClassName('nav-item');
+        let route = document.location.hash;
+
+        // Set active class on page load
+        const setActiveClass = (hash) => {
+            for (let i = 0; i < navItems.length; i++) {
+                navItems[i].classList.remove('active');
+                if (navItems[i].children[0].href.includes(hash)) {
+                    navItems[i].classList.add('active');
+                }
+            }
+        };
+
+        // Set default active class if no anchor is present in url
+        if (!route) {
+            navItems[0].classList.add('active');
+        } else {
+            setActiveClass(route);
+        }
+
+        // Set active class on click on anchor link
+        let onNavigation = false;
+        // Add event listener to each nav item to set active class on click
+        Array.from(navItems).forEach((item, i) => {
+            navItems[i].addEventListener('click', () => {
+                setActiveClass(navItems[i].children[0].hash);
+                onNavigation = true;
+            });
+        });
+
+        let lastScrollY = window.scrollY;
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            let scrollY = window.scrollY;
+
+            // If position is not the same as last scroll position, set lastScrollY to current scroll position and reset timeout
+            if (scrollY !== lastScrollY) {
+                lastScrollY = scrollY;
+
+                if (scrollTimeout) {
+                    clearTimeout(scrollTimeout);
+                }
+
+                scrollTimeout = setTimeout(() => {
+                    onNavigation = false;
+                }, 100);
+            }
+        });
+
+        const desktopNavItems = document.getElementsByClassName('desktop-nav-item');
+        Array.from(desktopNavItems).forEach(item => {
+            item.addEventListener('click', () => {
+                onNavigation = true;
+            })
+        })
+
+
+        // Get all links to sections from bottom nav bar
+        const homeSection = document.getElementById('home');
+        const aboutSection = document.getElementById('about');
+        const workSection = document.getElementById('work');
+        const engagementsSection = document.getElementById('engagements');
+        const contactSection = document.getElementById('contact');
+
+        // Set anchor to the url on scroll to trigger active class on nav items
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !onNavigation) {
+                    document.location.hash = entry.target.id;
+                }
+            });
+        };
+
+        window.addEventListener('hashchange', () => {
+            setActiveClass(document.location.hash);
+        });
+
+        const observer = new IntersectionObserver(observerCallback, {
+            threshold: 0.2
+        });
+
+        observer.observe(homeSection);
+        observer.observe(aboutSection);
+        observer.observe(workSection);
+        observer.observe(engagementsSection);
+        observer.observe(contactSection);
+    };
 </script>
 

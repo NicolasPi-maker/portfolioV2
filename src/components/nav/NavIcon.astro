@@ -1,0 +1,28 @@
+---
+const { icon } = Astro.props
+
+import SvgUser from './icon/UserNavIcon.astro';
+import SvgWork from './icon/WorkNavIcon.astro';
+import SvgRocket from './icon/RocketNavIcon.astro';
+import SvgContact from './icon/ContactNavIcon.astro';
+import SvgHome from './icon/HomeNavIcon.astro';
+
+const getSvgComponent = (icon) => {
+    switch (icon) {
+        case 'about':
+            return SvgUser;
+        case 'work':
+            return SvgWork;
+        case 'engagements':
+            return SvgRocket;
+        case 'contact':
+            return SvgContact;
+        default:
+            return SvgHome;
+    }
+}
+
+const Icon = getSvgComponent(icon);
+---
+
+<Icon />

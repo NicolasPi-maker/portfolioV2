@@ -1,0 +1,83 @@
+---
+const items = [
+    {
+    name: 'About me',
+    href: '#about',
+    },
+    {
+    name: 'Projects',
+    href: '#work',
+    },
+    {
+    name: 'Engagements',
+    href: '#engagements',
+    },
+];
+---
+
+<nav class="flex p-4 border-b">
+    <ul class="flex gap-16 mx-8 items-center w-full overflow-hidden">
+        <li class="flex-grow text-2xl hover:text-primary transition-colors duration-300">NP</li>
+        { items.map((item) => {
+            return (
+                <li class="desktop-nav-item text-lg hover:text-primary transition-colors duration-300">
+                    <a href={item.href}>{item.name}</a>
+                </li>
+            )
+        })}
+        <li class="bubbles-wrapper flex flex-col gap-10 px-4 py-4 relative">
+            <div class="p-1 px-4 bg-primary text-white rounded-3xl relative text-center">
+                <a href="/contact">Say hello</a>
+                <div class="triangle ask"></div>
+            </div>
+            <div class="answer-wrapper p-1 text-white px-4 rounded-3xl text-center absolute bottom-0" style="background-color: #E44949">
+                <a href="/contact">Hello !</a>
+                <div class="triangle answer"></div>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<style>
+    @media (max-width: 768px) {
+        nav {
+          display: none;
+        }
+    }
+
+    .triangle {
+      display : inline-block;
+      height : 0;
+      width : 0;
+      position:absolute;
+      border-right : 10px solid transparent;
+      border-left : 10px solid transparent;
+    }
+
+    .ask {
+      bottom: 0;
+      right: 0;
+      transform: rotate(130deg) translate(0%, -65%);
+      border-bottom : 20px solid var(--primary);
+    }
+
+    .answer {
+      bottom: 0;
+      left: 0;
+      transform: rotate(225deg) translate(0%, -65%);
+      border-bottom : 20px solid #E44949;
+    }
+
+    .answer-wrapper {
+      transform: translateY(100px);
+    }
+
+    .bubbles-wrapper {
+      transition: transform .4s .2s;
+    }
+
+
+    .bubbles-wrapper:hover {
+      transform: translateY(-116px);
+    }
+</style>

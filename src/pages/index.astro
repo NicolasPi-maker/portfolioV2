@@ -1,13 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import pwa from '../assets/img/pwa.svg'
 import profile from '../assets/img/rouned-profile.png';
-import VueIcon from '../assets/3d/vue-3d.png';
-import LaravelIcon from '../assets/3d/laravel-3d.png';
-import MyButton from '../components/shared/MyButton.astro';
 import LinkButton from '../components/shared/LinkButton.astro';
-import BottomNavBar from "../components/nav/BottomNavBar.astro";
 import ProjectCard from "../components/project/ProjectCard.astro";
 import projects from "../static/projects.json";
 import engagements from "../static/engagements.json";
@@ -15,127 +10,49 @@ import {ProjectInterface} from "../interface/project.interface";
 import {EngagementInterface} from "../interface/engagement.interface";
 import EngagementCard from "../components/engagement/EngagementCard.astro"
 import SocialNetwork from "../components/footer/SocialNetwork.astro";
+import DesktopNavBar from "../components/nav/DesktopNavBar.astro";
+import MobileAbout from '../components/about/MobileAbout.astro';
 
 const projectList = projects.data as [ProjectInterface];
 const engagementList = engagements.data as [EngagementInterface];
 ---
 
-<Layout title="Welcome to Astro.">
-	<header>
-		<section id="home" class="p-8 min-h-dvh">
-			<article>
-
+<Layout title="Pinier Nicolas web developper">
+	<header id="home" class="flex flex-col min-h-dvh">
+		<DesktopNavBar />
+		<section class="p-8 flex flex-col flex-auto lg:flex-row justify-center items-center overflow-hidden">
+			<article class="lg:w-1/3">
+				<h1 class="text-5xl alatsi-regular lg:text-7xl">Hello I'm <span class="text-gradient alatsi-regular">Nicolas</span><br> web developer</h1>
+				<div class="flex gap-4 my-6">
+					<LinkButton url="/contact" aria-label="redirect to contact form" role="link" label="Get in touch" customClass="hover:opacity-90 transition-opacity duration-300" />
+					<LinkButton customClass="hover:bg-primary transition-all duration-300 hover:text-white" downloadable={true} target="_blank" url="Pinier_Nicolas_cv.pdf" role="link" aria-label="download Pinier nicolas cv in pdf format" label="Download my CV" outlined={true}>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 14">
+							<rect width="14" height="14" fill="none" />
+							<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M4.5 8L7 10.5L9.5 8M7 10.5v-7" />
+								<path d="M7 13.5a6.5 6.5 0 1 0 0-13a6.5 6.5 0 0 0 0 13" />
+							</g>
+						</svg>
+					</LinkButton>
+				</div>
+				<div class="gap-6 roboto-regular hidden lg:flex flex-col pr-20">
+					<p>Passionate about technology and with a strong foundation in web development, I am a motivated and curious individual who is always eager to learn and improve.</p>
+					<p>With a solid understanding of modern web technologies, I bring enthusiasm and a commitment to excellence in every project.</p>
+					<p>At 27 years old, I am excited to contribute my skills and continue growing as a professional in the field.</p>
+				</div>
 			</article>
-			<h1 class="text-5xl alatsi-regular ">Hello I'm <span class="text-gradient alatsi-regular">Nicolas</span><br> web developer</h1>
-			<div class="flex gap-4 my-6">
-				<LinkButton url="/contact" aria-label="redirect to contact form" role="link" label="Get in touch" />
-				<LinkButton downloadable={true} target="_blank" url="Pinier_Nicolas_cv.pdf" role="link" aria-label="download Pinier nicolas cv in pdf format" label="Download my CV" outlined={true}>
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 14">
-						<rect width="14" height="14" fill="none" />
-						<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M4.5 8L7 10.5L9.5 8M7 10.5v-7" />
-							<path d="M7 13.5a6.5 6.5 0 1 0 0-13a6.5 6.5 0 0 0 0 13" />
-						</g>
-					</svg>
-				</LinkButton>
-			</div>
-			<div class="m-auto my-14 profile-pic-wrapper relative flex justify-center">
+			<article class="m-auto my-14 profile-pic-wrapper relative flex justify-center md:w-1/3 md:m-20">
 				<Image src={profile} alt="me who smalling in black and white colors" class="rounded-full relative" />
-			</div>
-			<div class="flex flex-col gap-6 roboto-regular">
+			</article>
+			<article class="flex flex-col gap-6 roboto-regular lg:hidden">
 				<p>Passionate about technology and with a strong foundation in web development, I am a motivated and curious individual who is always eager to learn and improve.</p>
 				<p>With a solid understanding of modern web technologies, I bring enthusiasm and a commitment to excellence in every project.</p>
-			</div>
+			</article>
 		</section>
-		<BottomNavBar />
 	</header>
 	<main>
 		<section class="min-h-dvh p-8 flex center flex-col gap-10 bg-primary-50 m-auto" id="about">
-			<div class="grid grid-cols-4 gap-4">
-				<div class="box glass center col-span-2 row-span-4 grid grid-cols-2 grid-rows-4 gap-4 z-10">
-					<div class="flex flex-col">
-						<span class="vue-icon">
-							<Image src={VueIcon} alt="Vue (javascript framework) smooth 3d logo" class="floating" />
-						</span>
-						<span class="laravel-icon">
-							<Image src={LaravelIcon} alt="Laravel (php framework) smooth 3d logo" class="floating" />
-						</span>
-					</div>
-				</div>
-				<div class="box center col-span-2 row-span-2 overflow-hidden relative half-box">
-					<div class="flex flex-col absolute -top-7 center gap-4">
-						<Image src={pwa} alt="mobile svg illustration for pwa skill developpement" />
-						<p class="text-sm">PWA developper</p>
-					</div>
-				</div>
-				<div class="box center col-span-2 row-span-2 half-box">
-					<div class="flex flex-col gap-2 center">
-						<h2 class="text-gradient text-5xl">2+</h2>
-						<p class="text-sm text-center">web developer years experience</p>
-					</div>
-				</div>
-				<div class="grid grid-cols-4 about-box box center col-span-4 row-span-2 half-box">
-					<h2 class="text-white alatsi-regular text-5xl">About me</h2>
-				</div>
-				<div class="box center col-span-2 row-span-2">
-					<div class="flex flex-col gap-2">
-						<h2 class="text-center text-gradient text-5xl">3+</h2>
-						<p class="text-sm text-center">Bachelor’s degree</p>
-					</div>
-				</div>
-				<div class="box center col-span-2 row-span-1 overflow-hidden quarter-box">
-					<div class="w-1/2 h-full center rounded-b-2xl rounded-t-0 border-r shadow">
-						<a href="/contact" aria-label="redirect to contact form" role="link" class="text-sm text-gradient text-center">Hire Me</a>
-					</div>
-					<div class="w-1/2 center">
-						<a href="/contact" aria-label="redirect to contact form" role="link" class="rounded-3xl px-2 py-1 bg-primary text-white text-sm relative">
-							Say hello
-							<span id="triangle-code" class="absolute -right-2 bottom-0"></span>
-						</a>
-					</div>
-				</div>
-				<div class="box col-span-2 row-span-2 center">
-					<div class="gap-2 flex flex-col p-4">
-						<h2 class="text-center text-gradient text-4xl">UX/UI</h2>
-						<p class="text-sm text-center">User experience & interface first</p>
-					</div>
-				</div>
-				<div class="box col-span-2 row-span-1">
-					<div class="center flex p-2">
-						<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 16 16">
-							<rect width="16" height="16" fill="none" />
-							<g fill="none">
-								<g clip-path="url(#gravityUiSealCheck0)">
-									<path fill="url(#blue-gradient)" fill-rule="evenodd" d="M5.515 3.5h.621l.44-.44l1.07-1.07a.5.5 0 0 1 .708 0l1.07 1.07l.44.44H12a.5.5 0 0 1 .5.5v2.136l.44.44l1.07 1.07a.5.5 0 0 1 0 .708l-1.07 1.07l-.44.44V12a.5.5 0 0 1-.5.5H9.864l-.44.44l-1.07 1.07a.5.5 0 0 1-.708 0l-1.07-1.07l-.44-.44H4a.5.5 0 0 1-.5-.5V9.864l-.44-.44l-1.07-1.07a.5.5 0 0 1 0-.708l1.07-1.07l.44-.44V4a.5.5 0 0 1 .5-.5zm3.9-2.571a2 2 0 0 0-2.83 0L5.516 2H4a2 2 0 0 0-2 2v1.515L.929 6.585a2 2 0 0 0 0 2.83L2 10.484V12a2 2 0 0 0 2 2h1.515l1.07 1.071a2 2 0 0 0 2.83 0L10.484 14H12a2 2 0 0 0 2-2v-1.515l1.071-1.07a2 2 0 0 0 0-2.83L14 5.516V4a2 2 0 0 0-2-2h-1.515zM11.1 6.45a.75.75 0 1 0-1.2-.9L7.419 8.858L6.03 7.47a.75.75 0 0 0-1.06 1.06l2 2a.75.75 0 0 0 1.13-.08z" clip-rule="evenodd" />
-								</g>
-								<defs>
-									<clipPath id="gravityUiSealCheck0">
-										<path fill="currentColor" d="M0 0h16v16H0z" />
-									</clipPath>
-								</defs>
-							</g>
-						</svg>
-						<p class="text-sm text-center">5+ web certifications</p>
-						<svg xmlns="http://www.w3.org/2000/svg" class="absolute" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 375 200">
-							<title>SVG Gradients: Fill & Stroke</title>
-							<defs>
-								<linearGradient id="blue-gradient" x1="0%" x2="100%" y1="0%" y2="0%">
-									<stop offset="0%" stop-color="#A83BCFB3" />
-									<stop offset="85%" stop-color="#E44949B3" />
-									<stop offset="100%" stop-color="#F8C291B3" />
-								</linearGradient>
-							</defs>
-						</svg>
-					</div>
-				</div>
-				<div class="box col-span-4 flex items-center gap-2 p-2 px-4">
-					<p class="text-sm flex-auto">Learn, improve, implement & repeat</p>
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-						<rect width="24" height="24" fill="none" />
-						<path fill="currentColor" class="text-primary" d="M12 4c2.59 0 4.894 1.23 6.357 3.143L16 9.5h6v-6l-2.219 2.219A9.98 9.98 0 0 0 12 2C6.477 2 2 6.477 2 12h2a8 8 0 0 1 8-8m8 8a8 8 0 0 1-14.357 4.857L8 14.5H2v6l2.219-2.219A9.98 9.98 0 0 0 12 22c5.523 0 10-4.477 10-10z" />
-					</svg>
-				</div>
-			</div>
+			<MobileAbout />
 			<LinkButton downloadable={true} target="_blank" url="Pinier_Nicolas_cv.pdf" role="link" aria-label="download Pinier nicolas cv in pdf format" label="See more on my CV">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 14">
 					<rect width="14" height="14" fill="none" />
@@ -146,26 +63,28 @@ const engagementList = engagements.data as [EngagementInterface];
 				</svg>
 			</LinkButton>
 		</section>
-		<section class="min-h-dvh p-8 flex flex-col gap-20" id="work">
+		<section id="work" class="min-h-dvh p-8 flex flex-col gap-20 items-center">
 			<h2 class="text-4xl alatsi-regular">My recent <span class="text-gradient">work</span></h2>
-			<ul class="flex flex-col gap-20">
-				{projectList.map((project) => {
-					return (<li>
-						<ProjectCard
-							url={project.url}
-							state={project.state}
-							logoPath={project.logoPath}
-							logoAlt={project.logoAlt}
-							title={project.title}
-							description={project.description}
-						/>
-					</li>)
+			<ul class="flex flex-col gap-20 md:grid grid-cols-3 lg:w-2/3">
+				{projectList.map((project, index) => {
+					return (
+						<li id={`project-${index}`}>
+							<ProjectCard
+								url={project.url}
+								state={project.state}
+								logoPath={project.logoPath}
+								logoAlt={project.logoAlt}
+								title={project.title}
+								description={project.description}
+							/>
+						</li>
+					);
 				})}
 			</ul>
-			<div class="flex flex-col gap-10 items-center mb-10">
+			<div class="flex flex-col gap-10 items-center mb-10 md:w-1/3">
 				<h3 class="font-bold text-xl">Interested to <span class="text-gradient">collaborate</span> together ?</h3>
 				<p class="text-center">I'm an adventurer always on the lookout for new quests and opportunities. Let's talk about our future project.</p>
-				<LinkButton url="/contact" aria-label="redirect to contact form" role="link" outlined={true} label="Start a conversation">
+				<LinkButton url="/contact" aria-label="redirect to contact form" role="link" outlined={true} label="Start a conversation" customClass="hover:bg-primary hover:text-white transition-colors duration-300">
 					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 36 36">
 						<rect width="36" height="36" fill="none" />
 						<path fill="currentColor" d="M18 2.5c-8.82 0-16 6.28-16 14s7.18 14 16 14a18 18 0 0 0 4.88-.68l5.53 3.52a1 1 0 0 0 1.54-.84v-6.73a13 13 0 0 0 4-9.27C34 8.78 26.82 2.5 18 2.5m10.29 22.11a1 1 0 0 0-.32.73v5.34l-4.38-2.79a1 1 0 0 0-.83-.11a16 16 0 0 1-4.76.72c-7.72 0-14-5.38-14-12s6.28-12 14-12s14 5.38 14 12a11.08 11.08 0 0 1-3.71 8.11" class="clr-i-outline clr-i-outline-path-1" />
@@ -177,8 +96,8 @@ const engagementList = engagements.data as [EngagementInterface];
 				</LinkButton>
 			</div>
 		</section>
-		<section id="engagements"  class="p-8 bg-primary-50 flex flex-col gap-16 pb-24">
-			<ul class="flex flex-col gap-16 flex-1 mb-36">
+		<section id="engagements"  class="p-8 bg-primary-50 flex flex-col gap-16 pb-24 justify-center items-center">
+			<ul class="flex flex-col gap-16 flex-1 mb-36 md:grid grid-cols-2 items-center :mdm-0 md:my-14 md:w-1/2">
 				{engagementList.map((engagement) => {
 					return (<li class="flex">
 						<EngagementCard
@@ -196,16 +115,19 @@ const engagementList = engagements.data as [EngagementInterface];
 		</section>
 	</main>
 	<footer id="contact" class="p-8 flex flex-col gap-12 mt-36 justify-center items-center">
-		<div class="relative w-full flex justify-center">
+		<div class="relative w-full flex justify-center md:w-2/3">
 			<div class="cross-section-block flex-col flex border rounded-xl bg-white shadow p-8 justify-center items-center absolute gap-12">
-				<div class="flex flex-col gap-6 flex-1">
-					<h2 class="alatsi-regular text-3xl text-center">Start project</h2>
-					<p class="text-sm text-center">
+				<div class="flex flex-col gap-2 flex-1 text-center md:text-left">
+					<h2 class="alatsi-regular text-3xl">Start project</h2>
+					<p class="text-sm xl:w-2/3">
 						Each project is a unique adventure, and my role is to support and guide each adventurer on their path to success, step by step, challenge after challenge, quest after quest.
 					</p>
 				</div>
-				<LinkButton url="/contact" aria-label="redirect to contact form" role="link" label="Start a new adventure">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20">
+				<a href='/contact' aria-label="redirect to contact form" role="link" id="btn-link-new-adventure"
+				   class=`text center justify-center flex items-center gap-4 rounded-xl py-2 px-4 bg-primary text-white`
+				>
+					Start a new adventure
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20" class="sword-icon">
 						<rect width="20" height="20" fill="none" />
 						<g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
 							<path d="M7.912 12.084a.5.5 0 0 1-.002-.707l3.53-3.542a.5.5 0 0 1 .708.705l-3.53 3.543a.5.5 0 0 1-.706 0" />
@@ -214,15 +136,17 @@ const engagementList = engagements.data as [EngagementInterface];
 							<path d="m5.121 13.533l-2.823 2.834a.5.5 0 0 0 .001.707l.709.706a.5.5 0 0 0 .707-.001l2.823-2.834l.709.706l-2.824 2.834a1.5 1.5 0 0 1-2.12.003l-.71-.705a1.5 1.5 0 0 1-.003-2.122l2.823-2.833z" />
 						</g>
 					</svg>
-				</LinkButton>
+				</a>
 			</div>
+			<h2 class="alatsi-regular text-3xl text-center">Or</h2>
 		</div>
-		<h2 class="alatsi-regular text-3xl text-center">Or</h2>
-		<p class="text-sm">
-			Feel free to contact me or connect with me on my networks to learn more about me, and who knows, maybe we’ll get the chance to chat or work together one day.
-		</p>
-		<Image id="footer-profile-pic" src={profile} alt="me who smalling in black and white colors" class="rounded-full relative" />
-		<SocialNetwork />
+		<div class="flex flex-col justify-center items-center gap-8 md:flex-row md:gap-24 md:w-1/2 mt-0 md:grid grid-cols-3 place-items-center mb-24">
+			<p class="text-sm">
+				Feel free to contact me or connect with me on my networks to learn more about me, and who knows, maybe we’ll get the chance to chat or work together one day.
+			</p>
+			<Image id="footer-profile-pic" src={profile} alt="me who smalling in black and white colors" class="rounded-full relative" />
+			<SocialNetwork />
+		</div>
 	</footer>
 </Layout>
 
@@ -258,7 +182,6 @@ const engagementList = engagements.data as [EngagementInterface];
 
 	.profile-pic-wrapper {
 		width: 300px;
-		height: 300px;
 	}
 
 	.profile-pic-wrapper::after {
@@ -268,10 +191,11 @@ const engagementList = engagements.data as [EngagementInterface];
 		border-radius: 50%;
 		top: 50%;
 		right: 50%;
-		transform: translate(50%, -50%);
 		z-index: -1;
+		transform: translate(50%, -50%);
+		filter: blur(50px);
 		background: var(--primary-gradient);
-		filter: blur(35px);
+		animation: aura-rotation 5s linear infinite;
 		opacity: 0.6;
 	}
 
@@ -285,37 +209,14 @@ const engagementList = engagements.data as [EngagementInterface];
 		height: 150px;
 	}
 
-	.box {
-		background-color: white;
-		box-shadow: rgba(99, 99, 99, 0.2) 0 2px 4px 0;
-		border-radius: 20px;
-		border: none;
-	}
-
-	.full-box {
-		height: 250px;
-	}
-
-	.half-box {
-		height: 125px;
-	}
-
-	.quarter-box {
-		height: 63px;
-	}
-
 	.center {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
+
 	.flex-grow {
 		flex-grow: 1;
-	}
-
-	.box-ten {
-		width: 345%;
-		height: 45px;
 	}
 
 	.glass {
@@ -332,85 +233,43 @@ const engagementList = engagements.data as [EngagementInterface];
 		background-size: cover;
 	}
 
-	.laravel-icon {
-		position: relative;
-		transform: rotate(-20deg) translate(-25px, -25px);
-		height: 120px;
-		width: 120px;
-	}
-
-	.laravel-icon::after ,.vue-icon::after {
-		content: '';
-		position: absolute;
-		padding: 20px;
-		border-radius: 50%;
-		top: 50%;
-		right: 50%;
-		transform: translate(50%, -50%);
-		z-index: -1;
-		filter: blur(35px);
-		width: 100%;
-		height: 100%;
-		animation: blur-gravity 3s ease-in-out infinite both;
-	}
-
-	.laravel-icon::after {
-		background: #FC574D;
-	}
-
-	.vue-icon {
-		position: relative;
-		transform: rotate(20deg) translate(25px, -25px);
-		height: 150px;
-		width: 150px;
-		z-index: 5;
-	}
-
-	.vue-icon::after {
-		background: #51F6AF;
-	}
-
-	#triangle-code{
-		display : inline-block;
-		height : 0;
-		width : 0;
-		border-bottom : 10px solid var(--primary);
-		border-right : 15px solid transparent;
-		transform: rotate(15deg);
-	}
-
-	.floating {
-		animation: floating 3s ease-in-out infinite both;
-	}
-
 	.cross-section-block {
 		transform: translateY(calc(-50% + -11rem));
 	}
 
-	@keyframes floating {
-		0% {
-			transform: rotateY(0);
+	@media (min-width: 768px) {
+		.cross-section-block {
+			flex-direction: row;
 		}
-		50% {
-			transform: translateY(5px);
+		.profile-pic-wrapper {
+			width: 400px;
 		}
-		100% {
-			transform: rotateY(0);
+
+		.sword-icon {
+			transform: translateY(18px) rotate(135deg);
+			transition: transform .3s .1s;
+		}
+
+		#btn-link-new-adventure:hover .sword-icon {
+			transform: rotate(0deg);
 		}
 	}
 
-	@keyframes blur-gravity {
+	@keyframes aura-rotation {
 		0% {
-			filter: blur(45px);
-			opacity: 0.6;
+			transform: translate(50%, -50%) rotate(0deg) scale(1);
+		}
+		25% {
+			transform: translate(50%, -50%) rotate(90deg) scale(1.2);
 		}
 		50% {
-			filter: blur(35px);
-			opacity: 0.8;
+			transform: translate(50%, -50%) rotate(180deg) scale(1.1);
+		}
+		75% {
+			transform: translate(50%, -50%) rotate(270deg) scale(1.3);
 		}
 		100% {
-			filter: blur(45px);
-			opacity: 0.6;
+			transform: translate(50%, -50%) rotate(360deg) scale(1);
 		}
 	}
 </style>

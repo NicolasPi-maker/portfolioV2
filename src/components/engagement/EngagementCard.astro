@@ -23,7 +23,7 @@ const {
 const image = import(imagePath);
 ---
 
-<div class=`${reversed ? 'flex flex-row-reverse' : 'flex'} gap-4 items-center bg-white rounded-xl p-4`>
+<div class=`${reversed ? 'flex flex-row-reverse' : 'flex'} gap-4 items-center bg-white rounded-xl p-4 min-h-36`>
     <div class="relative h-full w-full image3d-wrapper z-0">
         <Image src={image} alt={imageAlt} class=`image3d ${customClass}` />
     </div>

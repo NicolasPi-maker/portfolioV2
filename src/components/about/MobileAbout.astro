@@ -1,0 +1,241 @@
+---
+import {Image} from "astro:assets";
+import VueIcon from "../../assets/3d/vue-3d.png";
+import LaravelIcon from "../../assets/3d/laravel-3d.png";
+import pwa from "../../assets/img/pwa.svg";
+---
+
+<div class="grid grid-cols-4 gap-4">
+    <div class="box glass center col-span-2 row-span-4 grid grid-cols-2 grid-rows-4 gap-4 z-10">
+        <div class="flex flex-col">
+						<span class="vue-icon">
+							<Image src={VueIcon} alt="Vue (javascript framework) smooth 3d logo" class="floating" />
+						</span>
+            <span class="laravel-icon">
+							<Image src={LaravelIcon} alt="Laravel (php framework) smooth 3d logo" class="floating" />
+						</span>
+        </div>
+    </div>
+    <div class="box center col-span-2 row-span-2 overflow-hidden relative half-box">
+        <div class="flex flex-col absolute -top-7 center gap-4">
+            <Image src={pwa} alt="mobile svg illustration for pwa skill developpement" />
+            <p class="text-sm">PWA developper</p>
+        </div>
+    </div>
+    <div class="box center col-span-2 row-span-2 half-box">
+        <div class="flex flex-col gap-2 center">
+            <h2 class="text-gradient text-5xl">2+</h2>
+            <p class="text-sm text-center">web developer years experience</p>
+        </div>
+    </div>
+    <div class="grid grid-cols-4 about-box box center col-span-4 row-span-2 half-box">
+        <h2 class="text-white alatsi-regular text-5xl">About me</h2>
+    </div>
+    <div class="box center col-span-2 row-span-2">
+        <div class="flex flex-col gap-2">
+            <h2 class="text-center text-gradient text-5xl">3+</h2>
+            <p class="text-sm text-center">Bachelor’s degree</p>
+        </div>
+    </div>
+    <div class="box center col-span-2 row-span-1 overflow-hidden quarter-box">
+        <div class="w-1/2 h-full center rounded-b-2xl rounded-t-0 border-r shadow">
+            <a href="/contact" aria-label="redirect to contact form" role="link" class="text-sm text-gradient text-center">Hire Me</a>
+        </div>
+        <div class="w-1/2 center">
+            <a href="/contact" aria-label="redirect to contact form" role="link" class="rounded-3xl px-2 py-1 bg-primary text-white text-sm relative">
+                Say hello
+                <span id="triangle-code" class="absolute -right-2 bottom-0"></span>
+            </a>
+        </div>
+    </div>
+    <div class="box col-span-2 row-span-2 center">
+        <div class="gap-2 flex flex-col p-4">
+            <h2 class="text-center text-gradient text-4xl">UX/UI</h2>
+            <p class="text-sm text-center">User experience & interface first</p>
+        </div>
+    </div>
+    <div class="box col-span-2 row-span-1">
+        <div class="center flex p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 16 16">
+                <rect width="16" height="16" fill="none" />
+                <g fill="none">
+                    <g clip-path="url(#gravityUiSealCheck0)">
+                        <path fill="url(#blue-gradient)" fill-rule="evenodd" d="M5.515 3.5h.621l.44-.44l1.07-1.07a.5.5 0 0 1 .708 0l1.07 1.07l.44.44H12a.5.5 0 0 1 .5.5v2.136l.44.44l1.07 1.07a.5.5 0 0 1 0 .708l-1.07 1.07l-.44.44V12a.5.5 0 0 1-.5.5H9.864l-.44.44l-1.07 1.07a.5.5 0 0 1-.708 0l-1.07-1.07l-.44-.44H4a.5.5 0 0 1-.5-.5V9.864l-.44-.44l-1.07-1.07a.5.5 0 0 1 0-.708l1.07-1.07l.44-.44V4a.5.5 0 0 1 .5-.5zm3.9-2.571a2 2 0 0 0-2.83 0L5.516 2H4a2 2 0 0 0-2 2v1.515L.929 6.585a2 2 0 0 0 0 2.83L2 10.484V12a2 2 0 0 0 2 2h1.515l1.07 1.071a2 2 0 0 0 2.83 0L10.484 14H12a2 2 0 0 0 2-2v-1.515l1.071-1.07a2 2 0 0 0 0-2.83L14 5.516V4a2 2 0 0 0-2-2h-1.515zM11.1 6.45a.75.75 0 1 0-1.2-.9L7.419 8.858L6.03 7.47a.75.75 0 0 0-1.06 1.06l2 2a.75.75 0 0 0 1.13-.08z" clip-rule="evenodd" />
+                    </g>
+                    <defs>
+                        <clipPath id="gravityUiSealCheck0">
+                            <path fill="currentColor" d="M0 0h16v16H0z" />
+                        </clipPath>
+                    </defs>
+                </g>
+            </svg>
+            <p class="text-sm text-center">5+ web certifications</p>
+            <svg xmlns="http://www.w3.org/2000/svg" class="absolute" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 375 200">
+                <title>SVG Gradients: Fill & Stroke</title>
+                <defs>
+                    <linearGradient id="blue-gradient" x1="0%" x2="100%" y1="0%" y2="0%">
+                        <stop offset="0%" stop-color="#A83BCFB3" />
+                        <stop offset="85%" stop-color="#E44949B3" />
+                        <stop offset="100%" stop-color="#F8C291B3" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+    </div>
+    <div class="box col-span-4 flex items-center gap-2 p-2 px-4">
+        <p class="text-sm flex-auto">Learn, improve, implement & repeat</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <rect width="24" height="24" fill="none" />
+            <path fill="currentColor" class="text-primary" d="M12 4c2.59 0 4.894 1.23 6.357 3.143L16 9.5h6v-6l-2.219 2.219A9.98 9.98 0 0 0 12 2C6.477 2 2 6.477 2 12h2a8 8 0 0 1 8-8m8 8a8 8 0 0 1-14.357 4.857L8 14.5H2v6l2.219-2.219A9.98 9.98 0 0 0 12 22c5.523 0 10-4.477 10-10z" />
+        </svg>
+    </div>
+</div>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Alatsi&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+  .alatsi-regular {
+    font-family: "Alatsi", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .text-gradient {
+    background-image: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0;
+  }
+
+  .floating {
+    animation: floating 3s ease-in-out infinite both;
+  }
+
+  .cross-section-block {
+    transform: translateY(calc(-50% + -11rem));
+  }
+
+  @keyframes floating {
+    0% {
+      transform: rotateY(0);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+    100% {
+      transform: rotateY(0);
+    }
+  }
+
+  .box {
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 4px 0;
+    border-radius: 20px;
+    border: none;
+  }
+
+  .full-box {
+    height: 250px;
+  }
+
+  .half-box {
+    height: 125px;
+  }
+
+  .quarter-box {
+    height: 63px;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .flex-grow {
+    flex-grow: 1;
+  }
+
+  .box-ten {
+    width: 345%;
+    height: 45px;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .about-box {
+    background-image: url("../../assets/background/bg-about.png");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .laravel-icon {
+    position: relative;
+    transform: rotate(-20deg) translate(-25px, -25px);
+    height: 120px;
+    width: 120px;
+  }
+
+  .laravel-icon::after ,.vue-icon::after {
+    content: '';
+    position: absolute;
+    padding: 20px;
+    border-radius: 50%;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    z-index: -1;
+    filter: blur(35px);
+    width: 100%;
+    height: 100%;
+    animation: blur-gravity 3s ease-in-out infinite both;
+  }
+
+  .laravel-icon::after {
+    background: #FC574D;
+  }
+
+  .vue-icon {
+    position: relative;
+    transform: rotate(20deg) translate(25px, -25px);
+    height: 150px;
+    width: 150px;
+    z-index: 5;
+  }
+
+  .vue-icon::after {
+    background: #51F6AF;
+  }
+
+  #triangle-code{
+    display : inline-block;
+    height : 0;
+    width : 0;
+    border-bottom : 10px solid var(--primary);
+    border-right : 15px solid transparent;
+    transform: rotate(15deg);
+  }
+
+  @keyframes blur-gravity {
+    0% {
+      filter: blur(45px);
+      opacity: 0.6;
+    }
+    50% {
+      filter: blur(35px);
+      opacity: 0.8;
+    }
+    100% {
+      filter: blur(45px);
+      opacity: 0.6;
+    }
+  }
+</style>
+
