@@ -12,6 +12,7 @@ import EngagementCard from "../components/engagement/EngagementCard.astro"
 import SocialNetwork from "../components/footer/SocialNetwork.astro";
 import DesktopNavBar from "../components/nav/DesktopNavBar.astro";
 import MobileAbout from '../components/about/MobileAbout.astro';
+import DesktopAbout from '../components/about/DesktopAbout.astro';
 
 const projectList = projects.data as [ProjectInterface];
 const engagementList = engagements.data as [EngagementInterface];
@@ -51,9 +52,10 @@ const engagementList = engagements.data as [EngagementInterface];
 		</section>
 	</header>
 	<main>
-		<section class="min-h-dvh p-8 flex center flex-col gap-10 bg-primary-50 m-auto" id="about">
+		<section class="min-h-dvh p-8 flex center flex-col gap-8 bg-primary-50 m-auto" id="about">
 			<MobileAbout />
-			<LinkButton downloadable={true} target="_blank" url="Pinier_Nicolas_cv.pdf" role="link" aria-label="download Pinier nicolas cv in pdf format" label="See more on my CV">
+			<DesktopAbout />
+			<LinkButton downloadable={true} target="_blank" customClass="z-10" url="Pinier_Nicolas_cv.pdf" role="link" aria-label="download Pinier nicolas cv in pdf format" label="See more on my CV">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 14">
 					<rect width="14" height="14" fill="none" />
 					<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -65,7 +67,7 @@ const engagementList = engagements.data as [EngagementInterface];
 		</section>
 		<section id="work" class="min-h-dvh p-8 flex flex-col gap-20 items-center">
 			<h2 class="text-4xl alatsi-regular">My recent <span class="text-gradient">work</span></h2>
-			<ul class="flex flex-col gap-20 md:grid grid-cols-3 lg:w-2/3">
+			<ul class="flex flex-col gap-20 md:grid grid-cols-2 xl:grid-cols-3 lg:w-2/3">
 				{projectList.map((project, index) => {
 					return (
 						<li id={`project-${index}`}>
@@ -97,7 +99,7 @@ const engagementList = engagements.data as [EngagementInterface];
 			</div>
 		</section>
 		<section id="engagements"  class="p-8 bg-primary-50 flex flex-col gap-16 pb-24 justify-center items-center">
-			<ul class="flex flex-col gap-16 flex-1 mb-36 md:grid grid-cols-2 items-center :mdm-0 md:my-14 md:w-1/2">
+			<ul class="flex flex-col gap-16 flex-1 mb-36 md:grid grid-cols-2 items-center :mdm-0 md:my-14 w-full lg:w-2/3 xl:w-1/2">
 				{engagementList.map((engagement) => {
 					return (<li class="flex">
 						<EngagementCard
@@ -140,7 +142,7 @@ const engagementList = engagements.data as [EngagementInterface];
 			</div>
 			<h2 class="alatsi-regular text-3xl text-center">Or</h2>
 		</div>
-		<div class="flex flex-col justify-center items-center gap-8 md:flex-row md:gap-24 md:w-1/2 mt-0 md:grid grid-cols-3 place-items-center mb-24">
+		<div class="flex flex-col justify-center items-center gap-8 md:flex-row md:gap-24 w-3/4 xl:w-2/3 2xl:w-1/2 mt-0 md:grid grid-cols-3 place-items-center mb-24">
 			<p class="text-sm">
 				Feel free to contact me or connect with me on my networks to learn more about me, and who knows, maybe we’ll get the chance to chat or work together one day.
 			</p>

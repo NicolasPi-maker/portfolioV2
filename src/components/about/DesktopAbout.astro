@@ -1,0 +1,273 @@
+---
+import {Image} from "astro:assets";
+import VueIcon from "../../assets/3d/vue-3d.png";
+import LaravelIcon from "../../assets/3d/laravel-3d.png";
+import pwa from "../../assets/img/pwa.svg";
+import cake from "../../assets/img/cake.png";
+---
+
+<section class="grid-cols-12 grid-rows-3 gap-8 2xl:gap-16 my-12 w-full xl:w-3/4 2xl:w-3/5 p-4 hidden lg:grid about-wrapper">
+    <div class="box col-span-3 row-span-2 text-center glass z-10">
+        <div class="flex flex-col">
+            <span class="vue-icon">
+                <Image src={VueIcon} alt="Vue (javascript framework) smooth 3d logo" class="floating" />
+            </span>
+            <span class="laravel-icon">
+                <Image src={LaravelIcon} alt="Laravel (php framework) smooth 3d logo" class="floating" />
+            </span>
+        </div>
+    </div>
+    <div class="box col-span-3 flex flex-col justify-end relative">
+        <div class="h-1/2 rounded-2xl border absolute z-10 top-0 w-full p-2">
+            <h3 class="text-gradient text-xl text-center">Backend</h3>
+        </div>
+        <div class="h-1/2 rounded-2xl border bg-white absolute z-20 bottom-0 -translate-y-1/2 w-full p-2">
+            <h3 class="text-gradient text-xl text-center">API</h3>
+        </div>
+        <div class="h-1/2 rounded-2xl border bg-white z-50 text-center flex flex-col gap-2 p-2 shadow">
+            <h3 class="text-gradient text-xl">Frontend</h3>
+            <p>Multilayer architecture</p>
+        </div>
+    </div>
+    <div class="box col-span-3">
+        <div class="flex flex-col gap-2 center h-full">
+            <h2 class="text-gradient text-6xl">2+</h2>
+            <p class="text-center">web developer years experience</p>
+        </div>
+    </div>
+    <div class="col-span-3 grid grid-rows-5 gap-8">
+        <div class="box row-span-2 flex items-center justify-between">
+            <p class="flex-auto text-center">Best practice lover</p>
+            <span class="border-2 shadow border-primary text-primary place-items-center rounded-full bg-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 16 16">
+                    <rect width="36" height="36" fill="none" />
+                    <path fill="currentColor" d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093l3.473-4.425z" />
+                </svg>
+            </span>
+        </div>
+        <div class="box row-span-3 p-2 flex flex-col items-center justify-center relative">
+            <div class="flex gap-2 text-gradient items-center">
+                <h2 class="text-lg">Always Updated</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" viewBox="0 0 21 21" >
+                    <rect width="21" height="21" fill="none" />
+                    <path fill="none" stroke="url(#icon-gradient)" stroke-linecap="round" stroke-linejoin="round" d="m6.5 10.5l4 4.232l4-4.191m-4-7.041v11m-6 3h12" />
+                    <title>SVG Gradients: Fill & Stroke</title>
+                    <defs>
+                        <linearGradient id="update-icon-gradient" x1="0%" x2="100%" y1="0%" y2="0%">
+                            <stop offset="0%" stop-color="#A83BCFB3" />
+                            <stop offset="85%" stop-color="#E44949B3" />
+                            <stop offset="100%" stop-color="#F8C291B3" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <span class="absolute -top-3 right-0 min-w-7 shadow p-1 px-2 text-center text-sm rounded-full bg-red-500 text-white z-10">2</span>
+        </div>
+    </div>
+    <div class="box row-span-1 col-span-6 text-center about-box justify-center items-center flex">
+        <h2 class="text-white alatsi-regular text-5xl">About me</h2>
+    </div>
+    <div class="col-span-3 grid gap-4">
+        <div class="grid grid-cols-2 gap-8">
+            <div class="box text-center relative flex flex-col items-center overflow-hidden p-2">
+                <p class="text-sm">27 years old</p>
+                <Image src={cake} alt="ios birthday cake emoji with strawberry and candles" class="cake-img absolute -bottom-5" />
+            </div>
+            <div class="box grid grid-cols-3 overflow-hidden">
+                <span class="bg-blue-700 h-full col-span-1"></span>
+                <span class="bg-white h-full col-span-1"></span>
+                <span class="bg-red-700 h-full col-span-1"></span>
+            </div>
+        </div>
+        <div class="box text-center flex">
+            <div class="w-1/2 h-full center rounded-b-2xl rounded-tl-2xl border-r shadow">
+                <a href="/contact" aria-label="redirect to contact form" role="link" class="text-gradient text-center">Hire Me</a>
+            </div>
+            <div class="w-1/2 center">
+                <a href="/contact" aria-label="redirect to contact form" role="link" class="rounded-3xl px-2 py-1 bg-primary text-white relative">
+                    Say hello
+                    <span id="triangle-code" class="absolute -right-2 bottom-0"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="box text-center col-span-3">
+        <div class="flex flex-col gap-2 center h-full">
+            <h2 class="text-center text-gradient text-6xl">3+</h2>
+            <p class="text-center">Bachelor’s degree</p>
+        </div>
+    </div>
+    <div class="box text-center col-span-2 center gap-2 flex-col justify-center items-center overflow-hidden relative">
+        <div class="flex flex-col absolute -top-12 gap-4 items-center p-4">
+            <Image src={pwa} alt="mobile svg illustration for pwa skill developpement" />
+            <p class="text-center">PWA developper</p>
+        </div>
+    </div>
+    <div class="col-span-4 grid grid-rows-6 gap-6">
+        <div class="grid grid-cols-5 row-span-4 gap-8">
+            <div class="box text-center flex flex-col col-span-2 p-2 items-center overflow-hidden relative">
+                <p class="text-sm mt-1">Video games enthusiast</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="5rem" height="5rem" viewBox="0 0 24 24" class="text-primary absolute -bottom-8">
+                    <rect width="24" height="24" fill="none" />
+                    <path fill="currentColor" d="M7.97 16L5 19c-.33.3-.77.5-1.25.5A1.75 1.75 0 0 1 2 17.75v-.25l1-7.38A4.524 4.524 0 0 1 7.5 6h9c2.36 0 4.29 1.81 4.5 4.12l1 7.38v.25a1.75 1.75 0 0 1-1.75 1.75c-.48 0-.92-.2-1.25-.5l-2.97-3zM7 8v2H5v1h2v2h1v-2h2v-1H8V8zm9.5 0a.75.75 0 0 0-.75.75a.75.75 0 0 0 .75.75a.75.75 0 0 0 .75-.75a.75.75 0 0 0-.75-.75m-1.75 1.75a.75.75 0 0 0-.75.75a.75.75 0 0 0 .75.75a.75.75 0 0 0 .75-.75a.75.75 0 0 0-.75-.75m3.5 0a.75.75 0 0 0-.75.75a.75.75 0 0 0 .75.75a.75.75 0 0 0 .75-.75a.75.75 0 0 0-.75-.75M16.5 11.5a.75.75 0 0 0-.75.75a.75.75 0 0 0 .75.75a.75.75 0 0 0 .75-.75a.75.75 0 0 0-.75-.75" />
+                </svg>
+            </div>
+            <div class="box text-center col-span-3 flex relative justify-center items-center p-2 overflow-hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 16 16">
+                    <rect width="16" height="16" fill="none" />
+                    <g fill="none">
+                        <g clip-path="url(#gravityUiSealCheck0)">
+                            <path fill="url(#icon-gradient)" fill-rule="evenodd" d="M5.515 3.5h.621l.44-.44l1.07-1.07a.5.5 0 0 1 .708 0l1.07 1.07l.44.44H12a.5.5 0 0 1 .5.5v2.136l.44.44l1.07 1.07a.5.5 0 0 1 0 .708l-1.07 1.07l-.44.44V12a.5.5 0 0 1-.5.5H9.864l-.44.44l-1.07 1.07a.5.5 0 0 1-.708 0l-1.07-1.07l-.44-.44H4a.5.5 0 0 1-.5-.5V9.864l-.44-.44l-1.07-1.07a.5.5 0 0 1 0-.708l1.07-1.07l.44-.44V4a.5.5 0 0 1 .5-.5zm3.9-2.571a2 2 0 0 0-2.83 0L5.516 2H4a2 2 0 0 0-2 2v1.515L.929 6.585a2 2 0 0 0 0 2.83L2 10.484V12a2 2 0 0 0 2 2h1.515l1.07 1.071a2 2 0 0 0 2.83 0L10.484 14H12a2 2 0 0 0 2-2v-1.515l1.071-1.07a2 2 0 0 0 0-2.83L14 5.516V4a2 2 0 0 0-2-2h-1.515zM11.1 6.45a.75.75 0 1 0-1.2-.9L7.419 8.858L6.03 7.47a.75.75 0 0 0-1.06 1.06l2 2a.75.75 0 0 0 1.13-.08z" clip-rule="evenodd" />
+                        </g>
+                        <defs>
+                            <clipPath id="gravityUiSealCheck0">
+                                <path fill="currentColor" d="M0 0h16v16H0z" />
+                            </clipPath>
+                        </defs>
+                    </g>
+                </svg>
+                <p class="text-center">5+ web certifications</p>
+                <svg xmlns="http://www.w3.org/2000/svg" class="absolute" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 375 200">
+                    <title>SVG Gradients: Fill & Stroke</title>
+                    <defs>
+                        <linearGradient id="icon-gradient" x1="0%" x2="100%" y1="0%" y2="0%">
+                            <stop offset="0%" stop-color="#A83BCFB3" />
+                            <stop offset="85%" stop-color="#E44949B3" />
+                            <stop offset="100%" stop-color="#F8C291B3" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+        <div class="box text-center row-start-5 row-span-2 center gap-2">
+            <p>Learn, improve, implement & repeat</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <rect width="24" height="24" fill="none" />
+                <path fill="currentColor" class="text-primary" d="M12 4c2.59 0 4.894 1.23 6.357 3.143L16 9.5h6v-6l-2.219 2.219A9.98 9.98 0 0 0 12 2C6.477 2 2 6.477 2 12h2a8 8 0 0 1 8-8m8 8a8 8 0 0 1-14.357 4.857L8 14.5H2v6l2.219-2.219A9.98 9.98 0 0 0 12 22c5.523 0 10-4.477 10-10z" />
+            </svg>
+        </div>
+    </div>
+    <div class="box text-center col-span-3">
+        <div class="gap-2 center h-full flex-col p-4">
+            <h2 class="text-center text-gradient text-5xl">UX/UI</h2>
+            <p class="text-center">User experience & interface first</p>
+        </div>
+    </div>
+</section>
+
+<style>
+  .cake-img {
+    width: 4rem;
+  }
+
+  .text-gradient {
+    background-image: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0;
+  }
+
+  .about-wrapper {
+    height: 600px;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .alatsi-regular {
+    font-family: "Alatsi", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .box {
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 4px 0;
+    border-radius: 16px;
+    border: none;
+  }
+
+  #triangle-code{
+    display : inline-block;
+    height : 0;
+    width : 0;
+    border-bottom : 15px solid var(--primary);
+    border-right : 15px solid transparent;
+    transform: rotate(15deg);
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .about-box {
+    background-image: url("../../assets/background/bg-about.png");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .floating {
+    animation: floating 3s ease-in-out infinite both;
+  }
+
+  .cross-section-block {
+    transform: translateY(calc(-50% + -11rem));
+  }
+  .laravel-icon {
+    position: relative;
+    transform: rotate(-20deg) translate(-25px, -25px);
+    height: 150px;
+    width: 150px;
+  }
+
+  .laravel-icon::after ,.vue-icon::after {
+    content: '';
+    position: absolute;
+    padding: 20px;
+    border-radius: 50%;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    z-index: -1;
+    filter: blur(35px);
+    width: 100%;
+    height: 100%;
+    animation: blur-gravity 3s ease-in-out infinite both;
+  }
+
+  .laravel-icon::after {
+    background: #FC574D;
+  }
+
+  .vue-icon {
+    position: relative;
+    transform: rotate(20deg) translate(25px, -25px);
+    height: 200px;
+    width: 200px;
+    z-index: 5;
+  }
+
+  .vue-icon::after {
+    background: #51F6AF;
+  }
+
+  @keyframes floating {
+    0% {
+      transform: rotateY(0);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+    100% {
+      transform: rotateY(0);
+    }
+  }
+</style>

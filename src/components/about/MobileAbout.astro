@@ -5,15 +5,15 @@ import LaravelIcon from "../../assets/3d/laravel-3d.png";
 import pwa from "../../assets/img/pwa.svg";
 ---
 
-<div class="grid grid-cols-4 gap-4">
+<div class="grid grid-cols-4 gap-4 lg:hidden">
     <div class="box glass center col-span-2 row-span-4 grid grid-cols-2 grid-rows-4 gap-4 z-10">
         <div class="flex flex-col">
-						<span class="vue-icon">
-							<Image src={VueIcon} alt="Vue (javascript framework) smooth 3d logo" class="floating" />
-						</span>
+            <span class="vue-icon">
+                <Image src={VueIcon} alt="Vue (javascript framework) smooth 3d logo" class="floating" />
+            </span>
             <span class="laravel-icon">
-							<Image src={LaravelIcon} alt="Laravel (php framework) smooth 3d logo" class="floating" />
-						</span>
+                <Image src={LaravelIcon} alt="Laravel (php framework) smooth 3d logo" class="floating" />
+            </span>
         </div>
     </div>
     <div class="box center col-span-2 row-span-2 overflow-hidden relative half-box">
@@ -113,10 +113,6 @@ import pwa from "../../assets/img/pwa.svg";
     animation: floating 3s ease-in-out infinite both;
   }
 
-  .cross-section-block {
-    transform: translateY(calc(-50% + -11rem));
-  }
-
   @keyframes floating {
     0% {
       transform: rotateY(0);
@@ -132,7 +128,7 @@ import pwa from "../../assets/img/pwa.svg";
   .box {
     background-color: white;
     box-shadow: rgba(99, 99, 99, 0.2) 0 2px 4px 0;
-    border-radius: 20px;
+    border-radius: 16px;
     border: none;
   }
 
@@ -153,13 +149,9 @@ import pwa from "../../assets/img/pwa.svg";
     justify-content: center;
     align-items: center;
   }
+
   .flex-grow {
     flex-grow: 1;
-  }
-
-  .box-ten {
-    width: 345%;
-    height: 45px;
   }
 
   .glass {
@@ -218,7 +210,7 @@ import pwa from "../../assets/img/pwa.svg";
     display : inline-block;
     height : 0;
     width : 0;
-    border-bottom : 10px solid var(--primary);
+    border-bottom : 15px solid var(--primary);
     border-right : 15px solid transparent;
     transform: rotate(15deg);
   }
