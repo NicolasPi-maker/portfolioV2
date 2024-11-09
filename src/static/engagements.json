@@ -2,9 +2,9 @@
   "data": [
     {
       "imagePath":"../../assets/3d/rocket.png",
-      "imageAlt":"test",
+      "imageAlt":"3d rocket drop of from a box",
       "title":"Innovation",
-      "customClass":"3d rocket drop of from a box",
+      "customClass":"rocket",
       "description":"I use modern and innovative technologies to stay at the forefront of my expertise.",
       "auraColor":"#FC574D",
       "reversed": false
@@ -34,6 +34,24 @@
       "customClass":null,
       "description":"I design solutions by optimizing resources to reduce the ecological footprint, following a Green IT approach.",
       "auraColor":"#79FDC2",
+      "reversed": true
+    },
+    {
+      "imagePath":"../../assets/3d/seo.png",
+      "imageAlt":"table board with diagrams and money",
+      "title":"Seo Optimization",
+      "customClass":null,
+      "description":"Seo optimization is a key element in my development process to ensure the visibility of your project.",
+      "auraColor":"#efac4f",
+      "reversed": false
+    },
+    {
+      "imagePath":"../../assets/3d/scalability.png",
+      "imageAlt":"blue blueprint with a 3d cube on it and a 3d pencil",
+      "title":"Scalability & Flexibility",
+      "customClass":"blueprint",
+      "description":"I design scalable and flexible solutions to adapt to your needs and ensure the longevity of your project.",
+      "auraColor":"#4499be",
       "reversed": true
     }
   ]

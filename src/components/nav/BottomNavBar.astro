@@ -25,57 +25,64 @@ const navItemList = [
 ];
 
 ---
-<nav class="nav-wrapper mt-8 fixed bottom-5 right-1/2 z-50">
-    <ul class="glass w-full py-1 px-4 flex justify-around gap-2 rounded-3xl items-center">
+<nav id="navbar" class="nav-wrapper glass mt-8 fixed bottom-5 right-1/2 z-50">
+    <ul class="w-full py-1 px-4 flex justify-around gap-2 rounded-3xl items-center">
         {navItemList.map((item) => (
-            <li class=`rounded-full items-center justify-center w-12 nav-item flex flex-col`>
-                <a href={`#${item.value}`} class="py-1 px-3 flex gap-2">
-                    <NavIcon icon={item.value} />
-                </a>
-            </li>
+          <li class=`rounded-full items-center justify-center w-12 nav-item flex flex-col`>
+              <a href={`#${item.value}`} class="py-1 px-3 flex gap-2">
+                  <NavIcon icon={item.value} />
+              </a>
+          </li>
         ))}
     </ul>
 </nav>
 
 <style>
     .glass {
-      background: rgba(139, 139, 139, 0.13);
-      border-radius: 16px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(19px);
+        background: rgba(139, 139, 139, 0.13);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(19px);
     }
 
     .active {
-      color: white;
-      background-color: var(--primary);
-      box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+        color: white;
+        background-color: var(--primary);
+        box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
     }
 
     .nav-wrapper {
+        transition: transform .4s;
+        transform: translate(50%, 150%);
+    }
+
+    .active-nav {
       transform: translate(50%, -50%);
     }
 
     .nav-item {
-      transition: background-color .3s, color .2s;
+        transition: background-color .3s, color .2s;
     }
 
     .nav-item:hover {
-      background-color: var(--primary);
+        background-color: var(--primary);
     }
 
     .nav-item:hover a {
-      transition: color .3s;
+        transition: color .3s;
     }
 
     .nav-item:hover a {
-      color: white;
+        color: white;
     }
 </style>
 
 <script lang="js">
     window.onload = () => {
         // Get all nav items
+        const navBar = document.getElementById('navbar');
         const navItems = document.getElementsByClassName('nav-item');
+
         let route = document.location.hash;
 
         // Set active class on page load
@@ -107,7 +114,12 @@ const navItemList = [
 
         let lastScrollY = window.scrollY;
         let scrollTimeout;
+        let opacityNavTimeout;
         window.addEventListener('scroll', () => {
+            navBar.classList.add('active-nav');
+            if (opacityNavTimeout) {
+                clearTimeout(opacityNavTimeout);
+            }
             let scrollY = window.scrollY;
 
             // If position is not the same as last scroll position, set lastScrollY to current scroll position and reset timeout
@@ -119,6 +131,10 @@ const navItemList = [
                 }
 
                 scrollTimeout = setTimeout(() => {
+                    opacityNavTimeout = setTimeout(() => {
+                    navBar.classList.remove('active-nav');
+                    },1500)
+
                     onNavigation = false;
                 }, 100);
             }

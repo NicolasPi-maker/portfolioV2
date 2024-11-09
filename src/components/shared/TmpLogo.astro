@@ -1,0 +1,18 @@
+---
+const { fontSize = 'text-6xl', circleSize = '20px'} = Astro.props
+const size = circleSize;
+---
+<div class="flex w-full align-baseline">
+    <a href="/">
+        <h2 class=`${fontSize} roboto-bold flex justify-center items-center text-primary text-center rounded-full m-0 transition-colors duration-300`>NP</h2>
+    </a>
+    <div class="circle bg-primary shadow self-end"></div>
+</div>
+
+<style define:vars={{ size }}>
+  .circle {
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+  }
+</style>

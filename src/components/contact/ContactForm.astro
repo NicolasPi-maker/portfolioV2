@@ -1,0 +1,227 @@
+---
+---
+
+<form method="post" id="contact-form" class="w-full flex flex-col gap-6 flex-auto justify-center">
+    <div class="flex flex-col mb-4">
+        <h1 class="text-3xl font-bold">Send me a message</h1>
+        <p>Reach Out, I'm Just a Message Away!</p>
+    </div>
+    <div class="grid gap-6 mb-4 sm:grid-cols-2">
+        <div class="flex flex-col gap-2">
+            <label for="lastname">Lastname</label>
+            <input minlength="1" maxlength="32" required id="lastname" name="lastname" placeholder="Doe" type="text" class="border rounded p-2 border-neutral-400" />
+        </div>
+        <div class="flex flex-col gap-2">
+            <label for="firstname">Firstname</label>
+            <input minlength="1" maxlength="32" required id="firstname" placeholder="John" name="firstname" type="text" class="border rounded p-2 border-neutral-400" />
+        </div>
+    </div>
+    <div class="flex flex-col gap-2 w-full sm:w-1/2">
+        <label for="email">Email</label>
+        <input id="email" required name="email" type="email" class="border rounded p-2 border-neutral-400" placeholder="Email address" />
+    </div>
+    <div class="flex flex-col gap-2 w-full flex-auto lg:flex-none lg:h-52">
+        <label for="message">Message</label>
+        <textarea id="message" required name="message" class="w-full border rounded p-2 border-neutral-400 flex-auto" placeholder="Let's talk about my project over a beer..."/>
+    </div>
+    <div class="flex flex-col gap-2 w-full lg:w-1/2 secret">
+        <label for="secret">Secret</label>
+        <input id="secret" name="secret" type="checkbox" class="border rounded p-2 border-neutral-400" placeholder="Email address" />
+    </div>
+    <button id="btn-send-form" type="submit" class="md:w-max mt-4 md:self-end border rounded-xl p-2 px-4 bg-primary text-white flex items-center justify-center gap-4 opacity-90 transition-opacity duration-300 hover:opacity-100">
+        Send message
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 14 14">
+            <rect width="14" height="14" fill="none" />
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m5.812 11l2.178 2.168a1.1 1.1 0 0 0 1.05.3a1.12 1.12 0 0 0 .809-.74l3.576-10.72A1.118 1.118 0 0 0 11.987.57L1.267 4.147a1.12 1.12 0 0 0-.74.859a1.1 1.1 0 0 0 .3 1l2.737 2.737l-.09 3.466zM13.106.79L3.564 8.742" />
+        </svg>
+    </button>
+</form>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        emailjs.init({
+            publicKey: "bJEeliE2TyUArsuyL",
+        });
+    })();
+</script>
+
+<script>
+    const lastnameField = document.getElementById('lastname');
+    const firstnameField = document.getElementById('firstname');
+    const emailField = document.getElementById('email');
+    const messageField = document.getElementById('message');
+    const btnSendForm = document.getElementById('btn-send-form');
+
+    let onSubmission = false;
+    let errors = false;
+
+    const contentBtnLoading = `Send message 
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 24 24">
+            <rect width="24" height="24" fill="none" />
+            <path fill="none" stroke="currentColor" stroke-dasharray="16" stroke-dashoffset="16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3c4.97 0 9 4.03 9 9">
+                <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="16;0" />
+                <animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12" />
+            </path>
+        </svg>`;
+
+    const contentBtn = `Send message 
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 14 14">
+            <rect width="14" height="14" fill="none" />
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m5.812 11l2.178 2.168a1.1 1.1 0 0 0 1.05.3a1.12 1.12 0 0 0 .809-.74l3.576-10.72A1.118 1.118 0 0 0 11.987.57L1.267 4.147a1.12 1.12 0 0 0-.74.859a1.1 1.1 0 0 0 .3 1l2.737 2.737l-.09 3.466zM13.106.79L3.564 8.742" />
+        </svg>`;
+
+    const fields = [
+        {
+            name: 'lastname',
+            value: lastnameField,
+            errorMessages: {
+                required: 'Lastname is required',
+                invalid: 'Lastname is invalid'
+            }
+        },
+        {
+            name: 'firstname',
+            value: firstnameField,
+            errorMessages: {
+                required: 'Firstname is required',
+                invalid: 'Firstname is invalid'
+            }
+        },
+        {
+            name: 'email',
+            value: emailField,
+            errorMessages: {
+                required: 'Email is required',
+                invalid: 'Email is invalid'
+            }
+        },
+        {
+            name: 'message',
+            value: messageField,
+            errorMessages: {
+                required: 'Message is required',
+                invalid: 'Message is invalid'
+            }
+        }
+    ];
+
+    fields.forEach(field => {
+        field.value.addEventListener('blur', () => {
+            toggleError(field);
+        });
+    });
+
+    const sendForm = async () => {
+        btnSendForm.innerHTML = contentBtnLoading;
+        btnSendForm.disabled = true;
+
+        await emailjs.sendForm('service_gmail', 'template_contact_form', contactForm)
+            .then(() => {
+                window.location.replace('/contact/success');
+                contactForm.reset();
+            }, (error) => {
+                window.location.replace('/contact/error');
+            }).finally(() => {
+                onSubmission = false;
+                btnSendForm.innerHTML = contentBtn;
+                btnSendForm.disabled = false;
+            });
+    }
+
+    const handlingFormValidation = (formData) => {
+        formData.forEach((value, key) => {
+            if(key === 'secret' && value === 'on'){
+                errors = true;
+            }
+
+            if(!switchValidation(key)){
+                toggleError(fields.find(field => field.name === key));
+                errors = true;
+            }
+        });
+    }
+
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        if(onSubmission){
+            return;
+        }
+
+        onSubmission = true;
+        const formData = new FormData(contactForm);
+        handlingFormValidation(formData);
+
+        if(errors){
+            return;
+        }
+
+        await sendForm();
+    });
+
+    const switchValidation  = (fieldKey) =>{
+        switch (fieldKey) {
+            case 'lastname':
+                return stringFieldValidation(contactForm[fieldKey].value, 32);
+            case 'firstname':
+                return stringFieldValidation(contactForm[fieldKey].value, 32);
+            case 'email':
+                return emailValidation(contactForm[fieldKey].value);
+            case 'message':
+                return stringFieldValidation(contactForm[fieldKey].value, 256);
+            default:
+                return false;
+        }
+    }
+
+    const stringFieldValidation = (field, max) => {
+        let cleanField = field.trim();
+        return cleanField.length > 0 && cleanField.length < max;
+    }
+
+    const emailValidation = (email) => {
+        return email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/);
+    }
+
+    const createError = (message) => {
+        const error = document.createElement('p');
+        error.classList.add('error-message', 'text-red-500', 'text-sm');
+        error.textContent = message;
+        return error;
+    }
+
+    const toggleError = (field) => {
+        const inputElement = field.value;
+        const errorMessage = createError(field.errorMessages.invalid);
+
+        if (switchValidation(field.name)) {
+            const existingError = inputElement.nextElementSibling;
+            if (existingError && existingError.classList.contains('error-message')) {
+                existingError.remove();
+            }
+        } else {
+            const existingError = inputElement.nextElementSibling;
+            if (!existingError || !existingError.classList.contains('error-message')) {
+                inputElement.insertAdjacentElement('afterend', errorMessage);
+            }
+        }
+    }
+</script>
+
+<style>
+    textarea {
+      resize: none;
+    }
+
+    .secret {
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      left: 0;
+      height: 0;
+      width: 0;
+      z-index: -1;
+    }
+</style>

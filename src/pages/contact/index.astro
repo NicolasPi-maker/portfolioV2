@@ -1,0 +1,17 @@
+---
+import ContactForm from '../../components/contact/ContactForm.astro'
+import Layout from '../../layouts/Layout.astro'
+import SocialNetwork from '../../components/footer/SocialNetwork.astro'
+import TmpLogo from '../../components/shared/TmpLogo.astro';
+---
+<Layout title="Pinier Nicolas Web developper contact form">
+    <header class="p-8 pb-0">
+        <TmpLogo />
+    </header>
+    <main class="flex-auto p-8 flex flex-col w-full lg:w-2/3 xl:w-1/2 justify-center items-center ">
+        <ContactForm />
+    </main>
+    <footer class="p-8 pt-0 justify-center items-center flex">
+        <SocialNetwork />
+    </footer>
+</Layout>

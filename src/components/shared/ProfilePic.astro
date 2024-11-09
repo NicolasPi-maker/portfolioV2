@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import profile from "../../assets/img/rouned-profile.png";
+---
+
+<div class="m-auto my-14 profile-pic-wrapper relative flex justify-center md:w-1/3 xl:m-10">
+    <Image src={profile} alt="me who smalling in black and white colors" class="rounded-full relative" />
+</div>
+
+<style>
+  .profile-pic-wrapper::after {
+    content: '';
+    position: absolute;
+    padding: 20px;
+    border-radius: 50%;
+    top: 50%;
+    right: 50%;
+    z-index: -1;
+    transform: translate(50%, -50%);
+    filter: blur(50px);
+    background: var(--primary-gradient);
+    animation: aura-rotation 5s linear infinite;
+    opacity: 0.6;
+  }
+
+  .profile-pic-wrapper::after {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .profile-pic-wrapper {
+      width: 400px;
+    }
+  }
+
+  @keyframes aura-rotation {
+    0% {
+      transform: translate(50%, -50%) rotate(0deg) scale(1);
+    }
+    25% {
+      transform: translate(50%, -50%) rotate(90deg) scale(1.2);
+    }
+    50% {
+      transform: translate(50%, -50%) rotate(180deg) scale(1.1);
+    }
+    75% {
+      transform: translate(50%, -50%) rotate(270deg) scale(1.3);
+    }
+    100% {
+      transform: translate(50%, -50%) rotate(360deg) scale(1);
+    }
+  }
+</style>

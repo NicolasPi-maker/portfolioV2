@@ -1,4 +1,6 @@
 ---
+import TmpLogo from '../shared/TmpLogo.astro';
+
 const items = [
     {
     name: 'About me',
@@ -15,9 +17,13 @@ const items = [
 ];
 ---
 
-<nav class="flex p-4 border-b">
+<nav class="flex p-2 shadow">
     <ul class="flex gap-16 mx-8 items-center w-full overflow-hidden">
-        <li class="flex-grow text-2xl hover:text-primary transition-colors duration-300">NP</li>
+        <li class="flex-grow">
+            <div class="flex w-full align-baseline">
+                <TmpLogo fontSize="text-4xl" circleSize="0.75em" />
+            </div>
+        </li>
         { items.map((item) => {
             return (
                 <li class="desktop-nav-item text-lg hover:text-primary transition-colors duration-300">
@@ -26,14 +32,16 @@ const items = [
             )
         })}
         <li class="bubbles-wrapper flex flex-col gap-10 px-4 py-4 relative">
-            <div class="p-1 px-4 bg-primary text-white rounded-3xl relative text-center">
-                <a href="/contact">Say hello</a>
-                <div class="triangle ask"></div>
-            </div>
-            <div class="answer-wrapper p-1 text-white px-4 rounded-3xl text-center absolute bottom-0" style="background-color: #E44949">
-                <a href="/contact">Hello !</a>
-                <div class="triangle answer"></div>
-            </div>
+            <a href="/contact">
+                <div class="p-1 px-4 bg-primary text-white rounded-3xl relative text-center">
+                    <p>Say hello</p>
+                    <div class="triangle ask"></div>
+                </div>
+                <div class="answer-wrapper p-1 text-white px-4 rounded-3xl text-center absolute bottom-0" style="background-color: #E44949">
+                    <p>Hello !</p>
+                    <div class="triangle answer"></div>
+                </div>
+            </a>
         </li>
     </ul>
 </nav>
@@ -73,7 +81,7 @@ const items = [
     }
 
     .bubbles-wrapper {
-      transition: transform .4s .2s;
+      transition: transform .4s .3s;
     }
 
 

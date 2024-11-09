@@ -13,19 +13,22 @@ import SocialNetwork from "../components/footer/SocialNetwork.astro";
 import DesktopNavBar from "../components/nav/DesktopNavBar.astro";
 import MobileAbout from '../components/about/MobileAbout.astro';
 import DesktopAbout from '../components/about/DesktopAbout.astro';
+import ProfilePic from '../components/shared/ProfilePic.astro';
+import BottomNavBar from "../components/nav/BottomNavBar.astro";
 
 const projectList = projects.data as [ProjectInterface];
 const engagementList = engagements.data as [EngagementInterface];
 ---
 
 <Layout title="Pinier Nicolas web developper">
-	<header id="home" class="flex flex-col min-h-dvh">
+	<BottomNavBar />
+	<header id="home" class="flex flex-col min-h-dvh w-full">
 		<DesktopNavBar />
 		<section class="p-8 flex flex-col flex-auto lg:flex-row justify-center items-center overflow-hidden">
-			<article class="lg:w-1/3">
+			<article class="xl:w-1/3">
 				<h1 class="text-5xl alatsi-regular lg:text-7xl">Hello I'm <span class="text-gradient alatsi-regular">Nicolas</span><br> web developer</h1>
 				<div class="flex gap-4 my-6">
-					<LinkButton url="/contact" aria-label="redirect to contact form" role="link" label="Get in touch" customClass="hover:opacity-90 transition-opacity duration-300" />
+					<LinkButton url="/contact" aria-label="redirect to contact form" role="link" label="Get in touch" />
 					<LinkButton customClass="hover:bg-primary transition-all duration-300 hover:text-white" downloadable={true} target="_blank" url="Pinier_Nicolas_cv.pdf" role="link" aria-label="download Pinier nicolas cv in pdf format" label="Download my CV" outlined={true}>
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 14">
 							<rect width="14" height="14" fill="none" />
@@ -36,14 +39,14 @@ const engagementList = engagements.data as [EngagementInterface];
 						</svg>
 					</LinkButton>
 				</div>
-				<div class="gap-6 roboto-regular hidden lg:flex flex-col pr-20">
+				<div class="gap-8 roboto-regular hidden lg:flex flex-col pr-20">
 					<p>Passionate about technology and with a strong foundation in web development, I am a motivated and curious individual who is always eager to learn and improve.</p>
 					<p>With a solid understanding of modern web technologies, I bring enthusiasm and a commitment to excellence in every project.</p>
 					<p>At 27 years old, I am excited to contribute my skills and continue growing as a professional in the field.</p>
 				</div>
 			</article>
-			<article class="m-auto my-14 profile-pic-wrapper relative flex justify-center md:w-1/3 md:m-20">
-				<Image src={profile} alt="me who smalling in black and white colors" class="rounded-full relative" />
+			<article>
+				<ProfilePic />
 			</article>
 			<article class="flex flex-col gap-6 roboto-regular lg:hidden">
 				<p>Passionate about technology and with a strong foundation in web development, I am a motivated and curious individual who is always eager to learn and improve.</p>
@@ -52,10 +55,10 @@ const engagementList = engagements.data as [EngagementInterface];
 		</section>
 	</header>
 	<main>
-		<section class="min-h-dvh p-8 flex center flex-col gap-8 bg-primary-50 m-auto" id="about">
+		<section class="min-h-dvh p-8 flex justify-evenly items-center flex-col gap-8 bg-primary-50 m-auto" id="about">
 			<MobileAbout />
 			<DesktopAbout />
-			<LinkButton downloadable={true} target="_blank" customClass="z-10" url="Pinier_Nicolas_cv.pdf" role="link" aria-label="download Pinier nicolas cv in pdf format" label="See more on my CV">
+			<LinkButton downloadable={true} target="_blank" customClass="z-10 w-max lg:p-4 lg:text-lg"  url="Pinier_Nicolas_cv.pdf" role="link" aria-label="download Pinier nicolas cv in pdf format" label="Let's see more on my CV">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 14">
 					<rect width="14" height="14" fill="none" />
 					<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -86,7 +89,7 @@ const engagementList = engagements.data as [EngagementInterface];
 			<div class="flex flex-col gap-10 items-center mb-10 md:w-1/3">
 				<h3 class="font-bold text-xl">Interested to <span class="text-gradient">collaborate</span> together ?</h3>
 				<p class="text-center">I'm an adventurer always on the lookout for new quests and opportunities. Let's talk about our future project.</p>
-				<LinkButton url="/contact" aria-label="redirect to contact form" role="link" outlined={true} label="Start a conversation" customClass="hover:bg-primary hover:text-white transition-colors duration-300">
+				<LinkButton url="/contact" aria-label="redirect to contact form" role="link" outlined={true} label="Start a conversation">
 					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 36 36">
 						<rect width="36" height="36" fill="none" />
 						<path fill="currentColor" d="M18 2.5c-8.82 0-16 6.28-16 14s7.18 14 16 14a18 18 0 0 0 4.88-.68l5.53 3.52a1 1 0 0 0 1.54-.84v-6.73a13 13 0 0 0 4-9.27C34 8.78 26.82 2.5 18 2.5m10.29 22.11a1 1 0 0 0-.32.73v5.34l-4.38-2.79a1 1 0 0 0-.83-.11a16 16 0 0 1-4.76.72c-7.72 0-14-5.38-14-12s6.28-12 14-12s14 5.38 14 12a11.08 11.08 0 0 1-3.71 8.11" class="clr-i-outline clr-i-outline-path-1" />
@@ -98,8 +101,9 @@ const engagementList = engagements.data as [EngagementInterface];
 				</LinkButton>
 			</div>
 		</section>
-		<section id="engagements"  class="p-8 bg-primary-50 flex flex-col gap-16 pb-24 justify-center items-center">
-			<ul class="flex flex-col gap-16 flex-1 mb-36 md:grid grid-cols-2 items-center :mdm-0 md:my-14 w-full lg:w-2/3 xl:w-1/2">
+		<section id="engagements"  class="p-8 bg-primary-50 flex flex-col gap-8 pb-24 justify-center items-center">
+			<h2 class="alatsi-regular text-4xl">My developper <span class="text-gradient">engagements</span></h2>
+			<ul class="flex flex-col gap-12 flex-1 mb-36 md:grid grid-cols-2 xl:grid-cols-3 items-center :mdm-0 md:my-14 w-full 2xl:w-2/3">
 				{engagementList.map((engagement) => {
 					return (<li class="flex">
 						<EngagementCard
@@ -117,7 +121,7 @@ const engagementList = engagements.data as [EngagementInterface];
 		</section>
 	</main>
 	<footer id="contact" class="p-8 flex flex-col gap-12 mt-36 justify-center items-center">
-		<div class="relative w-full flex justify-center md:w-2/3">
+		<div class="relative w-full flex justify-center lg:w-2/3">
 			<div class="cross-section-block flex-col flex border rounded-xl bg-white shadow p-8 justify-center items-center absolute gap-12">
 				<div class="flex flex-col gap-2 flex-1 text-center md:text-left">
 					<h2 class="alatsi-regular text-3xl">Start project</h2>
@@ -142,7 +146,7 @@ const engagementList = engagements.data as [EngagementInterface];
 			</div>
 			<h2 class="alatsi-regular text-3xl text-center">Or</h2>
 		</div>
-		<div class="flex flex-col justify-center items-center gap-8 md:flex-row md:gap-24 w-3/4 xl:w-2/3 2xl:w-1/2 mt-0 md:grid grid-cols-3 place-items-center mb-24">
+		<div class="flex flex-col justify-center items-center gap-8 md:flex-row md:gap-24 w-3/4 xl:w-2/3 2xl:w-1/2 mt-0 md:grid grid-cols-3 place-items-center mb-16">
 			<p class="text-sm">
 				Feel free to contact me or connect with me on my networks to learn more about me, and who knows, maybe we’ll get the chance to chat or work together one day.
 			</p>
@@ -153,59 +157,6 @@ const engagementList = engagements.data as [EngagementInterface];
 </Layout>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Alatsi&display=swap');
-	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-	.alatsi-regular {
-		font-family: "Alatsi", sans-serif;
-		font-weight: 400;
-		font-style: normal;
-	}
-
-	.roboto-regular {
-		font-family: "Roboto", sans-serif;
-		font-weight: 400;
-		font-style: normal;
-	}
-
-	.roboto-bold {
-		font-family: "Roboto", sans-serif;
-		font-weight: 700;
-		font-style: normal;
-	}
-
-	.text-gradient {
-		background-image: var(--primary-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0;
-	}
-
-	.profile-pic-wrapper {
-		width: 300px;
-	}
-
-	.profile-pic-wrapper::after {
-		content: '';
-		position: absolute;
-		padding: 20px;
-		border-radius: 50%;
-		top: 50%;
-		right: 50%;
-		z-index: -1;
-		transform: translate(50%, -50%);
-		filter: blur(50px);
-		background: var(--primary-gradient);
-		animation: aura-rotation 5s linear infinite;
-		opacity: 0.6;
-	}
-
-	.profile-pic-wrapper::after {
-		width: 130%;
-		height: 130%;
-	}
-
 	#footer-profile-pic {
 		width: 150px;
 		height: 150px;
@@ -243,9 +194,6 @@ const engagementList = engagements.data as [EngagementInterface];
 		.cross-section-block {
 			flex-direction: row;
 		}
-		.profile-pic-wrapper {
-			width: 400px;
-		}
 
 		.sword-icon {
 			transform: translateY(18px) rotate(135deg);
@@ -254,24 +202,6 @@ const engagementList = engagements.data as [EngagementInterface];
 
 		#btn-link-new-adventure:hover .sword-icon {
 			transform: rotate(0deg);
-		}
-	}
-
-	@keyframes aura-rotation {
-		0% {
-			transform: translate(50%, -50%) rotate(0deg) scale(1);
-		}
-		25% {
-			transform: translate(50%, -50%) rotate(90deg) scale(1.2);
-		}
-		50% {
-			transform: translate(50%, -50%) rotate(180deg) scale(1.1);
-		}
-		75% {
-			transform: translate(50%, -50%) rotate(270deg) scale(1.3);
-		}
-		100% {
-			transform: translate(50%, -50%) rotate(360deg) scale(1);
 		}
 	}
 </style>
