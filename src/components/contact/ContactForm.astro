@@ -1,5 +1,5 @@
 ---
-import {ContactFieldInterface} from "../../interface/contactField.interface.ts";
+import type {ContactFieldInterface} from "../../interface/contactField.interface.ts";
 ---
 
 <form method="post" id="contact-form" class="w-full flex flex-col gap-6 flex-auto justify-center">
@@ -72,7 +72,7 @@ import {ContactFieldInterface} from "../../interface/contactField.interface.ts";
             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m5.812 11l2.178 2.168a1.1 1.1 0 0 0 1.05.3a1.12 1.12 0 0 0 .809-.74l3.576-10.72A1.118 1.118 0 0 0 11.987.57L1.267 4.147a1.12 1.12 0 0 0-.74.859a1.1 1.1 0 0 0 .3 1l2.737 2.737l-.09 3.466zM13.106.79L3.564 8.742" />
         </svg>`;
 
-    const fields: Array<ContactFieldInterface> = [
+    const fields = [
         {
             name: 'lastname',
             value: lastnameField,
@@ -179,7 +179,7 @@ import {ContactFieldInterface} from "../../interface/contactField.interface.ts";
         }
     }
 
-    const stringFieldValidation = (field: string, max: number) => {
+    const stringFieldValidation = (field, max) => {
         let cleanField = field.trim();
         return cleanField.length > 0 && cleanField.length < max;
     }
