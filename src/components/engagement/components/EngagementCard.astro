@@ -1,4 +1,5 @@
 ---
+import type { ImageMetadata } from 'astro';
 import {Image} from "astro:assets";
 interface Props {
     title: string,
@@ -20,12 +21,13 @@ const {
     customClass
 } = Astro.props;
 
-const image = import(imagePath);
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/3d/*.{jpeg,jpg,png,gif,webp}')
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "/src/assets/3d/*.{jpeg,jpg,png,gif}"`);
 ---
 
 <div class=`${reversed ? 'flex flex-row-reverse' : 'flex'} gap-4 items-center bg-white rounded-xl p-4 min-h-36`>
     <div class="relative h-full w-full image3d-wrapper z-0">
-        <Image src={image} alt={imageAlt} class=`image3d ${customClass}` />
+        <Image src={images[imagePath]()} alt={imageAlt} class=`image3d ${customClass}` />
     </div>
     <div class="flex flex-col gap-2">
         <h3 class="font-bold text-lg">{ title }</h3>

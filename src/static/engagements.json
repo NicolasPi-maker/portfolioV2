@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "imagePath":"../../../assets/3d/rocket.png",
+      "imagePath":"/src/assets/3d/rocket.png",
       "imageAlt":"3d rocket drop of from a box",
       "title":"Innovation",
       "customClass":"rocket",
@@ -10,7 +10,7 @@
       "reversed": false
     },
     {
-      "imagePath":"../../../assets/3d/security.png",
+      "imagePath":"/src/assets/3d/security.png",
       "imageAlt":"3d mobile phone show a secure authentification on his screen",
       "title":"Security",
       "customClass":"security",
@@ -19,7 +19,7 @@
       "reversed": true
     },
     {
-      "imagePath":"../../../assets/3d/rate.png",
+      "imagePath":"/src/assets/3d/rate.png",
       "imageAlt":"3d meter with spin at maximum with a thunderbolt",
       "title":"Performance",
       "customClass":null,
@@ -28,7 +28,7 @@
       "reversed": false
     },
     {
-      "imagePath":"../../../assets/3d/green.png",
+      "imagePath":"/src/assets/3d/green.png",
       "imageAlt":"2 hands who hold the earth planet in 3d",
       "title":"Green IT",
       "customClass":null,
@@ -37,7 +37,7 @@
       "reversed": true
     },
     {
-      "imagePath":"../../../assets/3d/seo.png",
+      "imagePath":"/src/assets/3d/seo.png",
       "imageAlt":"table board with diagrams and money",
       "title":"Seo Optimization",
       "customClass":null,
@@ -46,7 +46,7 @@
       "reversed": false
     },
     {
-      "imagePath":"../../../assets/3d/scalability.png",
+      "imagePath":"/src/assets/3d/scalability.png",
       "imageAlt":"blue blueprint with a 3d cube on it and a 3d pencil",
       "title":"Scalability & Flexibility",
       "customClass":"blueprint",
