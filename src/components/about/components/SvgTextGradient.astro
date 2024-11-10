@@ -1,0 +1,27 @@
+---
+const { gradientId } = Astro.props;
+---
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 16 16">
+    <rect width="16" height="16" fill="none" />
+    <g fill="none">
+        <g clip-path="url(#gravityUiSealCheck0)">
+            <path fill=`url(#${gradientId})` fill-rule="evenodd" d="M5.515 3.5h.621l.44-.44l1.07-1.07a.5.5 0 0 1 .708 0l1.07 1.07l.44.44H12a.5.5 0 0 1 .5.5v2.136l.44.44l1.07 1.07a.5.5 0 0 1 0 .708l-1.07 1.07l-.44.44V12a.5.5 0 0 1-.5.5H9.864l-.44.44l-1.07 1.07a.5.5 0 0 1-.708 0l-1.07-1.07l-.44-.44H4a.5.5 0 0 1-.5-.5V9.864l-.44-.44l-1.07-1.07a.5.5 0 0 1 0-.708l1.07-1.07l.44-.44V4a.5.5 0 0 1 .5-.5zm3.9-2.571a2 2 0 0 0-2.83 0L5.516 2H4a2 2 0 0 0-2 2v1.515L.929 6.585a2 2 0 0 0 0 2.83L2 10.484V12a2 2 0 0 0 2 2h1.515l1.07 1.071a2 2 0 0 0 2.83 0L10.484 14H12a2 2 0 0 0 2-2v-1.515l1.071-1.07a2 2 0 0 0 0-2.83L14 5.516V4a2 2 0 0 0-2-2h-1.515zM11.1 6.45a.75.75 0 1 0-1.2-.9L7.419 8.858L6.03 7.47a.75.75 0 0 0-1.06 1.06l2 2a.75.75 0 0 0 1.13-.08z" clip-rule="evenodd" />
+        </g>
+        <defs>
+            <clipPath id="gravityUiSealCheck0">
+                <path fill="currentColor" d="M0 0h16v16H0z" />
+            </clipPath>
+        </defs>
+    </g>
+</svg>
+<p class="text-center">5+ web certifications</p>
+<svg xmlns="http://www.w3.org/2000/svg" class="absolute top-0" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 375 200">
+    <title>SVG Gradients: Fill & Stroke</title>
+    <defs>
+        <linearGradient id=`${gradientId}` x1="0%" x2="100%" y1="0%" y2="0%">
+            <stop offset="0%" stop-color="#A83BCFB3" />
+            <stop offset="85%" stop-color="#E44949B3" />
+            <stop offset="100%" stop-color="#F8C291B3" />
+        </linearGradient>
+    </defs>
+</svg>

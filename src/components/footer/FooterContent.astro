@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+import profile from "../../assets/img/rouned-profile.png";
+import SocialNetwork from "../shared/SocialNetwork.astro";
+---
+
+<section class="relative w-full flex justify-center lg:w-2/3">
+    <div class="cross-section-block flex-col flex border rounded-xl bg-white shadow p-8 justify-center items-center absolute gap-12">
+        <div class="flex flex-col gap-2 flex-1 text-center md:text-left">
+            <h2 class="alatsi-regular text-3xl">Start project</h2>
+            <p class="xl:w-2/3">
+                Each project is a unique adventure, and my role is to support and guide each adventurer on their path to success, step by step, challenge after challenge, quest after quest.
+            </p>
+        </div>
+        <a href='/contact' aria-label="redirect to contact form" role="link" id="btn-link-new-adventure"
+           class=`text center justify-center flex items-center gap-4 rounded-xl py-2 px-4 bg-primary text-white`
+        >
+            Start a new adventure
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20" class="sword-icon">
+                <rect width="20" height="20" fill="none" />
+                <g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+                    <path d="M7.912 12.084a.5.5 0 0 1-.002-.707l3.53-3.542a.5.5 0 0 1 .708.705l-3.53 3.543a.5.5 0 0 1-.706 0" />
+                    <path d="M17.04 3.505a.5.5 0 0 0-.583-.582l-2.6.485a.5.5 0 0 0-.262.138L7.2 9.964a.5.5 0 0 0 0 .707l2.126 2.117a.5.5 0 0 0 .707 0l6.394-6.419a.5.5 0 0 0 .138-.263zm-.766-1.565a1.5 1.5 0 0 1 1.75 1.744l-.474 2.602a1.5 1.5 0 0 1-.413.79l-6.394 6.417a1.5 1.5 0 0 1-2.122.004L6.496 11.38a1.5 1.5 0 0 1-.004-2.122l6.394-6.418a1.5 1.5 0 0 1 .788-.416z" />
+                    <path d="M3.31 9.618a2 2 0 0 1 2.83-.006l4.25 4.235a2 2 0 0 1-2.823 2.834l-4.251-4.235a2 2 0 0 1-.005-2.828m2.123.703a1 1 0 1 0-1.411 1.417l4.25 4.234a1 1 0 0 0 1.412-1.417z" />
+                    <path d="m5.121 13.533l-2.823 2.834a.5.5 0 0 0 .001.707l.709.706a.5.5 0 0 0 .707-.001l2.823-2.834l.709.706l-2.824 2.834a1.5 1.5 0 0 1-2.12.003l-.71-.705a1.5 1.5 0 0 1-.003-2.122l2.823-2.833z" />
+                </g>
+            </svg>
+        </a>
+    </div>
+    <h2 class="alatsi-regular text-3xl text-center">Or</h2>
+</section>
+<section class="flex flex-col justify-center items-center gap-8 md:flex-row md:gap-24 w-3/4 xl:w-2/3 2xl:w-1/2 mt-0 md:grid grid-cols-3 place-items-center mb-16">
+    <p>
+        Feel free to contact me or connect with me on my networks to learn more about me, and who knows, maybe we’ll get the chance to chat or work together one day.
+    </p>
+    <Image id="footer-profile-pic" src={profile} alt="me who smalling in black and white colors" class="rounded-full relative" />
+    <SocialNetwork />
+</section>
+
+<style>
+  #footer-profile-pic {
+    width: 150px;
+    height: 150px;
+  }
+  .cross-section-block {
+    transform: translateY(calc(-50% + -11rem));
+  }
+
+  @media (min-width: 768px) {
+    .cross-section-block {
+      flex-direction: row;
+    }
+
+    .sword-icon {
+      transform: translateY(18px) rotate(135deg);
+      transition: transform .3s .1s;
+    }
+
+    #btn-link-new-adventure:hover .sword-icon {
+      transform: rotate(0deg);
+    }
+  }
+</style>

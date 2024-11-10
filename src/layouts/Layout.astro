@@ -87,10 +87,20 @@ const { title } = Astro.props;
 		background-position: 0;
 	}
 
-	.glass {
-		background: rgba(255, 255, 255, 0);
+	.center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.flex-grow {
+		flex-grow: 1;
+	}
+
+	.box {
+		background-color: white;
+		box-shadow: rgba(99, 99, 99, 0.2) 0 2px 4px 0;
 		border-radius: 16px;
-		backdrop-filter: blur(20px);
-		-webkit-backdrop-filter: blur(20px);
+		border: none;
 	}
 </style>

@@ -1,0 +1,17 @@
+---
+import DesktopAbout from "./DesktopAbout.astro";
+import ButtonLink from "../shared/ButtonLink.astro";
+import MobileAbout from "./MobileAbout.astro";
+---
+
+<MobileAbout />
+<DesktopAbout />
+<ButtonLink downloadable={true} target="_blank" customClass="z-10 w-max lg:p-4 lg:text-lg"  url="Pinier_Nicolas_cv.pdf" role="link" aria-label="download Pinier nicolas cv in pdf format" label="Let's see more on my CV">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 14">
+        <rect width="14" height="14" fill="none" />
+        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 8L7 10.5L9.5 8M7 10.5v-7" />
+            <path d="M7 13.5a6.5 6.5 0 1 0 0-13a6.5 6.5 0 0 0 0 13" />
+        </g>
+    </svg>
+</ButtonLink>

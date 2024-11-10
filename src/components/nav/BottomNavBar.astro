@@ -25,7 +25,7 @@ const navItemList = [
 ];
 
 ---
-<nav id="navbar" class="nav-wrapper glass mt-8 fixed bottom-5 right-1/2 z-50">
+<nav id="navbar" class="nav-wrapper mt-8 fixed bottom-5 right-1/2 z-50">
     <ul class="w-full py-1 px-4 flex justify-around gap-2 rounded-3xl items-center">
         {navItemList.map((item) => (
           <li class=`rounded-full items-center justify-center w-12 nav-item flex flex-col`>
@@ -38,13 +38,6 @@ const navItemList = [
 </nav>
 
 <style>
-    .glass {
-        background: rgba(139, 139, 139, 0.13);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(19px);
-    }
-
     .active {
         color: white;
         background-color: var(--primary);
@@ -54,6 +47,12 @@ const navItemList = [
     .nav-wrapper {
         transition: transform .4s;
         transform: translate(50%, 150%);
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        background-color: rgba(255, 255, 255, 0.75);
+        border-radius: 24px;
+        border: 1px solid rgba(209, 213, 219, 0.3);
+        box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
     }
 
     .active-nav {
@@ -77,106 +76,5 @@ const navItemList = [
     }
 </style>
 
-<script lang="js">
-    window.onload = () => {
-        // Get all nav items
-        const navBar = document.getElementById('navbar');
-        const navItems = document.getElementsByClassName('nav-item');
-
-        let route = document.location.hash;
-
-        // Set active class on page load
-        const setActiveClass = (hash) => {
-            for (let i = 0; i < navItems.length; i++) {
-                navItems[i].classList.remove('active');
-                if (navItems[i].children[0].href.includes(hash)) {
-                    navItems[i].classList.add('active');
-                }
-            }
-        };
-
-        // Set default active class if no anchor is present in url
-        if (!route) {
-            navItems[0].classList.add('active');
-        } else {
-            setActiveClass(route);
-        }
-
-        // Set active class on click on anchor link
-        let onNavigation = false;
-        // Add event listener to each nav item to set active class on click
-        Array.from(navItems).forEach((item, i) => {
-            navItems[i].addEventListener('click', () => {
-                setActiveClass(navItems[i].children[0].hash);
-                onNavigation = true;
-            });
-        });
-
-        let lastScrollY = window.scrollY;
-        let scrollTimeout;
-        let opacityNavTimeout;
-        window.addEventListener('scroll', () => {
-            navBar.classList.add('active-nav');
-            if (opacityNavTimeout) {
-                clearTimeout(opacityNavTimeout);
-            }
-            let scrollY = window.scrollY;
-
-            // If position is not the same as last scroll position, set lastScrollY to current scroll position and reset timeout
-            if (scrollY !== lastScrollY) {
-                lastScrollY = scrollY;
-
-                if (scrollTimeout) {
-                    clearTimeout(scrollTimeout);
-                }
-
-                scrollTimeout = setTimeout(() => {
-                    opacityNavTimeout = setTimeout(() => {
-                    navBar.classList.remove('active-nav');
-                    },1500)
-
-                    onNavigation = false;
-                }, 100);
-            }
-        });
-
-        const desktopNavItems = document.getElementsByClassName('desktop-nav-item');
-        Array.from(desktopNavItems).forEach(item => {
-            item.addEventListener('click', () => {
-                onNavigation = true;
-            })
-        })
-
-
-        // Get all links to sections from bottom nav bar
-        const homeSection = document.getElementById('home');
-        const aboutSection = document.getElementById('about');
-        const workSection = document.getElementById('work');
-        const engagementsSection = document.getElementById('engagements');
-        const contactSection = document.getElementById('contact');
-
-        // Set anchor to the url on scroll to trigger active class on nav items
-        const observerCallback = (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !onNavigation) {
-                    document.location.hash = entry.target.id;
-                }
-            });
-        };
-
-        window.addEventListener('hashchange', () => {
-            setActiveClass(document.location.hash);
-        });
-
-        const observer = new IntersectionObserver(observerCallback, {
-            threshold: 0.2
-        });
-
-        observer.observe(homeSection);
-        observer.observe(aboutSection);
-        observer.observe(workSection);
-        observer.observe(engagementsSection);
-        observer.observe(contactSection);
-    };
-</script>
+<script src="../../static/js/navigation.js"></script>
 

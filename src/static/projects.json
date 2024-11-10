@@ -1,51 +1,51 @@
 {
   "data": [
     {
-      "title": "Lorem Ispum",
-      "logoPath": "../../assets/project/logos/logo1.jpg",
-      "logoAlt": "it's just lorem",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur culpa dolor dolore itaque libero voluptatem.",
+      "title": "ApiMill V3",
+      "logoPath": "../../../assets/project/logos/apimill.jpg",
+      "logoAlt": "Sphere like web sphere with the text: Génération de brochures Apidae",
+      "description": "Actually on working on the third version of the ApiMill project, Saas brochure generation tool for the Apidae platform in my web agency.",
       "state": "private",
       "url": null
     },
     {
-      "title": "Lorem Ispum",
-      "logoPath": "../../assets/project/logos/logo2.png",
-      "logoAlt": "it's just lorem",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur culpa dolor dolore itaque libero voluptatem.",
-      "state": "online",
-      "url": "https://www.danger/index.php"
-    },
-    {
-      "title": "Lorem Ispum",
-      "logoPath": "../../assets/project/logos/logo3.png",
-      "logoAlt": "it's just lorem",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur culpa dolor dolore itaque libero voluptatem.",
+      "title": "Get Afraid",
+      "logoPath": "../../../assets/project/logos/afraid.svg",
+      "logoAlt": "Chalk writin  like satanist symbols with old effect like a horror movie/story",
+      "description": "Progressive web app for horror stories generation only by artificial intelligence, with a dark and mysterious design. (backend in maintenance)",
       "state": "archived",
       "url": null
     },
     {
-      "title": "Lorem Ispum",
-      "logoPath": "../../assets/project/logos/logo4.webp",
-      "logoAlt": "it's just lorem",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur culpa dolor dolore itaque libero voluptatem.",
+      "title": "Portfolio v2",
+      "logoPath": "../../../assets/project/logos/new_pf.png",
+      "logoAlt": "Purple capital letters N & P with a dot at left bottom",
+      "description": "Your are currently on the second version of my portfolio, a showcase of my skills and projects. Astro static website built with a lot of love.",
       "state": "online",
-      "url": null
+      "url": "/"
     },
     {
-      "title": "Lorem Ispum",
-      "logoPath": "../../assets/project/logos/logo5.jpg",
-      "logoAlt": "it's just lorem",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur culpa dolor dolore itaque libero voluptatem.",
+      "title": "Wordpress plugins",
+      "logoPath": "../../../assets/project/logos/wp.png",
+      "logoAlt": "Blue W with blue circle around (wordpress logo)",
+      "description": "I made some wordpress plugins for my web agency customers, like a plugin to scrap google-review or a plugin to get ski domains datas easily.",
       "state": "private",
       "url": null
     },
     {
-      "title": "Lorem Ispum",
-      "logoPath": "../../assets/project/logos/logo6.png",
-      "logoAlt": "it's just lorem",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium consectetur culpa dolor dolore itaque libero voluptatem.",
-      "state": "in progress",
+      "title": "Old Portfolio",
+      "logoPath": "../../../assets/project/logos/old_pf.jpg",
+      "logoAlt": "Capital letters N & P with a square at right bottom and left top with a dot at right top, text white on blue duck background",
+      "description": "My first monolithic portfolio with Symfony. I made admin panel, design, and all the code. It was a good experience to improve my skills.",
+      "state": "online",
+      "url": "https://npdeveloper.fr/"
+    },
+    {
+      "title": "Real Estate admin panel",
+      "logoPath": "../../../assets/project/logos/maurin.webp",
+      "logoAlt": "3D house with a roof and a chimney, with a tree and a sun",
+      "description": "I made an admin panel for a real estate agency in my web agency. It's a tool to manage real estate adverts",
+      "state": "private",
       "url": null
     }
   ]

@@ -1,207 +1,30 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import profile from '../assets/img/rouned-profile.png';
-import LinkButton from '../components/shared/LinkButton.astro';
-import ProjectCard from "../components/project/ProjectCard.astro";
-import projects from "../static/projects.json";
-import engagements from "../static/engagements.json";
-import {ProjectInterface} from "../interface/project.interface";
-import {EngagementInterface} from "../interface/engagement.interface";
-import EngagementCard from "../components/engagement/EngagementCard.astro"
-import SocialNetwork from "../components/footer/SocialNetwork.astro";
-import DesktopNavBar from "../components/nav/DesktopNavBar.astro";
-import MobileAbout from '../components/about/MobileAbout.astro';
-import DesktopAbout from '../components/about/DesktopAbout.astro';
-import ProfilePic from '../components/shared/ProfilePic.astro';
 import BottomNavBar from "../components/nav/BottomNavBar.astro";
-
-const projectList = projects.data as [ProjectInterface];
-const engagementList = engagements.data as [EngagementInterface];
+import HeaderContent from "../components/header/HeaderContent.astro";
+import AboutContent from "../components/about/AboutContent.astro";
+import ProjectContent from "../components/project/ProjectContent.astro";
+import EngagementContent from "../components/engagement/EngagementContent.astro";
+import FooterContent from "../components/footer/FooterContent.astro";
 ---
 
 <Layout title="Pinier Nicolas web developper">
 	<BottomNavBar />
 	<header id="home" class="flex flex-col min-h-dvh w-full">
-		<DesktopNavBar />
-		<section class="p-8 flex flex-col flex-auto lg:flex-row justify-center items-center overflow-hidden">
-			<article class="xl:w-1/3">
-				<h1 class="text-5xl alatsi-regular lg:text-7xl">Hello I'm <span class="text-gradient alatsi-regular">Nicolas</span><br> web developer</h1>
-				<div class="flex gap-4 my-6">
-					<LinkButton url="/contact" aria-label="redirect to contact form" role="link" label="Get in touch" />
-					<LinkButton customClass="hover:bg-primary transition-all duration-300 hover:text-white" downloadable={true} target="_blank" url="Pinier_Nicolas_cv.pdf" role="link" aria-label="download Pinier nicolas cv in pdf format" label="Download my CV" outlined={true}>
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 14">
-							<rect width="14" height="14" fill="none" />
-							<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M4.5 8L7 10.5L9.5 8M7 10.5v-7" />
-								<path d="M7 13.5a6.5 6.5 0 1 0 0-13a6.5 6.5 0 0 0 0 13" />
-							</g>
-						</svg>
-					</LinkButton>
-				</div>
-				<div class="gap-8 roboto-regular hidden lg:flex flex-col pr-20">
-					<p>Passionate about technology and with a strong foundation in web development, I am a motivated and curious individual who is always eager to learn and improve.</p>
-					<p>With a solid understanding of modern web technologies, I bring enthusiasm and a commitment to excellence in every project.</p>
-					<p>At 27 years old, I am excited to contribute my skills and continue growing as a professional in the field.</p>
-				</div>
-			</article>
-			<article>
-				<ProfilePic />
-			</article>
-			<article class="flex flex-col gap-6 roboto-regular lg:hidden">
-				<p>Passionate about technology and with a strong foundation in web development, I am a motivated and curious individual who is always eager to learn and improve.</p>
-				<p>With a solid understanding of modern web technologies, I bring enthusiasm and a commitment to excellence in every project.</p>
-			</article>
-		</section>
+		<HeaderContent />
 	</header>
 	<main>
 		<section class="min-h-dvh p-8 flex justify-evenly items-center flex-col gap-8 bg-primary-50 m-auto" id="about">
-			<MobileAbout />
-			<DesktopAbout />
-			<LinkButton downloadable={true} target="_blank" customClass="z-10 w-max lg:p-4 lg:text-lg"  url="Pinier_Nicolas_cv.pdf" role="link" aria-label="download Pinier nicolas cv in pdf format" label="Let's see more on my CV">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 14 14">
-					<rect width="14" height="14" fill="none" />
-					<g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-						<path d="M4.5 8L7 10.5L9.5 8M7 10.5v-7" />
-						<path d="M7 13.5a6.5 6.5 0 1 0 0-13a6.5 6.5 0 0 0 0 13" />
-					</g>
-				</svg>
-			</LinkButton>
+			<AboutContent />
 		</section>
 		<section id="work" class="min-h-dvh p-8 flex flex-col gap-20 items-center">
-			<h2 class="text-4xl alatsi-regular">My recent <span class="text-gradient">work</span></h2>
-			<ul class="flex flex-col gap-20 md:grid grid-cols-2 xl:grid-cols-3 lg:w-2/3">
-				{projectList.map((project, index) => {
-					return (
-						<li id={`project-${index}`}>
-							<ProjectCard
-								url={project.url}
-								state={project.state}
-								logoPath={project.logoPath}
-								logoAlt={project.logoAlt}
-								title={project.title}
-								description={project.description}
-							/>
-						</li>
-					);
-				})}
-			</ul>
-			<div class="flex flex-col gap-10 items-center mb-10 md:w-1/3">
-				<h3 class="font-bold text-xl">Interested to <span class="text-gradient">collaborate</span> together ?</h3>
-				<p class="text-center">I'm an adventurer always on the lookout for new quests and opportunities. Let's talk about our future project.</p>
-				<LinkButton url="/contact" aria-label="redirect to contact form" role="link" outlined={true} label="Start a conversation">
-					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 36 36">
-						<rect width="36" height="36" fill="none" />
-						<path fill="currentColor" d="M18 2.5c-8.82 0-16 6.28-16 14s7.18 14 16 14a18 18 0 0 0 4.88-.68l5.53 3.52a1 1 0 0 0 1.54-.84v-6.73a13 13 0 0 0 4-9.27C34 8.78 26.82 2.5 18 2.5m10.29 22.11a1 1 0 0 0-.32.73v5.34l-4.38-2.79a1 1 0 0 0-.83-.11a16 16 0 0 1-4.76.72c-7.72 0-14-5.38-14-12s6.28-12 14-12s14 5.38 14 12a11.08 11.08 0 0 1-3.71 8.11" class="clr-i-outline clr-i-outline-path-1" />
-						<path fill="currentColor" d="M25 15.5H11a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2" class="clr-i-outline clr-i-outline-path-2" />
-						<path fill="currentColor" d="M21.75 20.5h-7.5a1 1 0 0 0 0 2h7.5a1 1 0 0 0 0-2" class="clr-i-outline clr-i-outline-path-3" />
-						<path fill="currentColor" d="M11.28 12.5h13.44a1 1 0 0 0 0-2H11.28a1 1 0 0 0 0 2" class="clr-i-outline clr-i-outline-path-4" />
-						<path fill="none" d="M0 0h36v36H0z" />
-					</svg>
-				</LinkButton>
-			</div>
+			<ProjectContent />
 		</section>
 		<section id="engagements"  class="p-8 bg-primary-50 flex flex-col gap-8 pb-24 justify-center items-center">
-			<h2 class="alatsi-regular text-4xl">My developper <span class="text-gradient">engagements</span></h2>
-			<ul class="flex flex-col gap-12 flex-1 mb-36 md:grid grid-cols-2 xl:grid-cols-3 items-center :mdm-0 md:my-14 w-full 2xl:w-2/3">
-				{engagementList.map((engagement) => {
-					return (<li class="flex">
-						<EngagementCard
-							imagePath={engagement.imagePath}
-							imageAlt={engagement.imageAlt}
-							title={engagement.title}
-							customClass={engagement.customClass ?? ''}
-							description={engagement.description}
-							auraColor={engagement.auraColor}
-							reversed={engagement.reversed}
-						/>
-					</li>)
-				})}
-			</ul>
+			<EngagementContent />
 		</section>
 	</main>
 	<footer id="contact" class="p-8 flex flex-col gap-12 mt-36 justify-center items-center">
-		<div class="relative w-full flex justify-center lg:w-2/3">
-			<div class="cross-section-block flex-col flex border rounded-xl bg-white shadow p-8 justify-center items-center absolute gap-12">
-				<div class="flex flex-col gap-2 flex-1 text-center md:text-left">
-					<h2 class="alatsi-regular text-3xl">Start project</h2>
-					<p class="text-sm xl:w-2/3">
-						Each project is a unique adventure, and my role is to support and guide each adventurer on their path to success, step by step, challenge after challenge, quest after quest.
-					</p>
-				</div>
-				<a href='/contact' aria-label="redirect to contact form" role="link" id="btn-link-new-adventure"
-				   class=`text center justify-center flex items-center gap-4 rounded-xl py-2 px-4 bg-primary text-white`
-				>
-					Start a new adventure
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20" class="sword-icon">
-						<rect width="20" height="20" fill="none" />
-						<g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
-							<path d="M7.912 12.084a.5.5 0 0 1-.002-.707l3.53-3.542a.5.5 0 0 1 .708.705l-3.53 3.543a.5.5 0 0 1-.706 0" />
-							<path d="M17.04 3.505a.5.5 0 0 0-.583-.582l-2.6.485a.5.5 0 0 0-.262.138L7.2 9.964a.5.5 0 0 0 0 .707l2.126 2.117a.5.5 0 0 0 .707 0l6.394-6.419a.5.5 0 0 0 .138-.263zm-.766-1.565a1.5 1.5 0 0 1 1.75 1.744l-.474 2.602a1.5 1.5 0 0 1-.413.79l-6.394 6.417a1.5 1.5 0 0 1-2.122.004L6.496 11.38a1.5 1.5 0 0 1-.004-2.122l6.394-6.418a1.5 1.5 0 0 1 .788-.416z" />
-							<path d="M3.31 9.618a2 2 0 0 1 2.83-.006l4.25 4.235a2 2 0 0 1-2.823 2.834l-4.251-4.235a2 2 0 0 1-.005-2.828m2.123.703a1 1 0 1 0-1.411 1.417l4.25 4.234a1 1 0 0 0 1.412-1.417z" />
-							<path d="m5.121 13.533l-2.823 2.834a.5.5 0 0 0 .001.707l.709.706a.5.5 0 0 0 .707-.001l2.823-2.834l.709.706l-2.824 2.834a1.5 1.5 0 0 1-2.12.003l-.71-.705a1.5 1.5 0 0 1-.003-2.122l2.823-2.833z" />
-						</g>
-					</svg>
-				</a>
-			</div>
-			<h2 class="alatsi-regular text-3xl text-center">Or</h2>
-		</div>
-		<div class="flex flex-col justify-center items-center gap-8 md:flex-row md:gap-24 w-3/4 xl:w-2/3 2xl:w-1/2 mt-0 md:grid grid-cols-3 place-items-center mb-16">
-			<p class="text-sm">
-				Feel free to contact me or connect with me on my networks to learn more about me, and who knows, maybe we’ll get the chance to chat or work together one day.
-			</p>
-			<Image id="footer-profile-pic" src={profile} alt="me who smalling in black and white colors" class="rounded-full relative" />
-			<SocialNetwork />
-		</div>
+		<FooterContent />
 	</footer>
 </Layout>
-
-<style>
-	#footer-profile-pic {
-		width: 150px;
-		height: 150px;
-	}
-
-	.center {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.flex-grow {
-		flex-grow: 1;
-	}
-
-	.glass {
-		background: rgba(255, 255, 255, 0);
-		border-radius: 16px;
-		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-		backdrop-filter: blur(20px);
-		-webkit-backdrop-filter: blur(20px);
-	}
-
-	.about-box {
-		background-image: url("../assets/background/bg-about.png");
-		background-position: center;
-		background-size: cover;
-	}
-
-	.cross-section-block {
-		transform: translateY(calc(-50% + -11rem));
-	}
-
-	@media (min-width: 768px) {
-		.cross-section-block {
-			flex-direction: row;
-		}
-
-		.sword-icon {
-			transform: translateY(18px) rotate(135deg);
-			transition: transform .3s .1s;
-		}
-
-		#btn-link-new-adventure:hover .sword-icon {
-			transform: rotate(0deg);
-		}
-	}
-</style>

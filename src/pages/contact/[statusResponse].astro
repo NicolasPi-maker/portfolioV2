@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro'
-import LinkButton from '../../components/shared/LinkButton.astro'
+import ButtonLink from '../../components/shared/ButtonLink.astro'
 
 export function getStaticPaths() {
     return [
@@ -32,6 +32,6 @@ const subtitle = statusResponse === 'success' ? 'I\'m preparing a coffee and I\'
             <h1 class="text-4xl alatsi-regular text-center ">{ title }</h1>
             <p class="text-center text-text-default">{ subtitle }</p>
         </div>
-        <LinkButton url="/" label="Back to home" outlined={true} />
+        <ButtonLink url="/" label="Back to home" outlined={true} />
     </main>
 </Layout>
