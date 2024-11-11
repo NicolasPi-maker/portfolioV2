@@ -17,15 +17,16 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Alatsi&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 	</head>
 	<body class="min-h-dvh flex flex-col md:items-center">
 		<slot />
 	</body>
 </html>
 <style is:global>
-	@import url('https://fonts.googleapis.com/css2?family=Alatsi&display=swap');
-	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 	:root {
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
@@ -36,7 +37,7 @@ const { title } = Astro.props;
 			rgb(var(--accent-light)) 30%,
 			white 60%
 		);
-		--primary : #7e85fb;
+		--primary : #4c3bcf;
 		--primary-50: #eef1ff;
 		--primary-gradient: linear-gradient(to right, rgba(168, 59, 207, 0.7), rgba(228, 73, 73, 0.7), rgba(249, 168, 212, 0.7), rgba(248, 194, 145, 0.7));
 		--text-default: #4d4d4d;

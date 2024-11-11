@@ -3,7 +3,7 @@ const { label, outlined, customClass, url, ariaLabel, role, target, downloadable
 ---
 <a href={url} {...(downloadable && { download: fileName })}
    target={target} aria-label={ariaLabel} role={role}
-   class=`text center justify-center flex items-center gap-4 rounded-xl py-2 px-4 duration-300  ${outlined ? 'transition-colors border border-primary text-primary hover:bg-primary hover:text-white' : 'transition-opacity bg-primary opacity-80 hover:opacity-100 text-white'} ${customClass ? customClass : ''}`
+   class=`text center justify-center flex items-center gap-4 rounded-xl py-2 px-4 duration-300  ${outlined ? 'transition-colors border border-primary text-primary lg:hover:bg-primary lg:hover:text-white' : 'transition-opacity bg-primary lg:hover:opacity-80 text-white'} ${customClass ? customClass : ''}`
 >
     { label }
     <slot />

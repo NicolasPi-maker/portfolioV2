@@ -3,16 +3,19 @@ import TmpLogo from '../shared/TmpLogo.astro';
 
 const items = [
     {
-    name: 'About me',
-    href: '#about',
+        name: 'About me',
+        href: '#about',
+        ariaLabel: 'Anchor link to go to about section page',
     },
     {
-    name: 'Projects',
-    href: '#work',
+        name: 'Projects',
+        href: '#work',
+        ariaLabel: 'Anchor link to go to work section page',
     },
     {
-    name: 'Engagements',
-    href: '#engagements',
+        name: 'Engagements',
+        href: '#engagements',
+        ariaLabel: 'Anchor link to go to engagements section page',
     },
 ];
 ---
@@ -27,12 +30,12 @@ const items = [
         { items.map((item) => {
             return (
                 <li class="desktop-nav-item text-lg hover:text-primary transition-colors duration-300">
-                    <a href={item.href} class="p-2">{item.name}</a>
+                    <a href={item.href} class="p-2" aria-label={ item.ariaLabel }>{item.name}</a>
                 </li>
             )
         })}
         <li class="bubbles-wrapper flex flex-col gap-10 px-4 py-4 relative">
-            <a href="/contact">
+            <a href="/contact" aria-label="Navigate to contact page to send email from a contact form">
                 <div class="p-1 px-4 bg-primary text-white rounded-3xl relative text-center">
                     <p>Say hello</p>
                     <div class="triangle ask"></div>
