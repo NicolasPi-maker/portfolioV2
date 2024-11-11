@@ -68,16 +68,17 @@ const navItemList = [
         transition: background-color .3s, color .2s;
     }
 
-    .nav-item:hover {
-        background-color: var(--primary);
-    }
+    @media (min-width: 768px) {
+        .nav-item:hover {
+            background-color: var(--primary);
+        }
+        .nav-item:hover a {
+            transition: color .3s;
+        }
 
-    .nav-item:hover a {
-        transition: color .3s;
-    }
-
-    .nav-item:hover a {
-        color: white;
+        .nav-item:hover a {
+            color: white;
+        }
     }
 </style>
 
