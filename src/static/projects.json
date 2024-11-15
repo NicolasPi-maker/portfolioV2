@@ -6,7 +6,8 @@
       "logoAlt": "Sphere like web sphere with the text: Génération de brochures Apidae",
       "description": "Actually on working on the third version of the ApiMill project, Saas brochure generation tool for the Apidae platform in my web agency.",
       "state": "private",
-      "url": null
+      "url": null,
+      "repository": null
     },
     {
       "title": "Get Afraid",
@@ -14,15 +15,17 @@
       "logoAlt": "Chalk writin  like satanist symbols with old effect like a horror movie/story",
       "description": "Progressive web app for horror stories generation only by artificial intelligence, with a dark and mysterious design. (backend in maintenance)",
       "state": "archived",
-      "url": null
+      "url": null,
+      "repository": "https://github.com/NicolasPi-maker/afraid_app.git"
     },
     {
       "title": "Portfolio v2",
-      "logoPath": "/src/assets/project/logos/new_pf.png",
+      "logoPath": "/src/assets/project/logos/new_pf.svg",
       "logoAlt": "Purple capital letters N & P with a dot at left bottom",
       "description": "Your are currently on the second version of my portfolio, a showcase of my skills and projects. Astro static website built with a lot of love.",
       "state": "online",
-      "url": "/"
+      "url": "/",
+      "repository": "https://github.com/NicolasPi-maker/portfolioV2.git"
     },
     {
       "title": "Wordpress plugins",
@@ -30,7 +33,8 @@
       "logoAlt": "Blue W with blue circle around (wordpress logo)",
       "description": "I made some wordpress plugins for my web agency customers, like a plugin to scrap google-review or a plugin to get ski domains datas easily.",
       "state": "private",
-      "url": null
+      "url": null,
+      "repository": null
     },
     {
       "title": "Old Portfolio",
@@ -38,7 +42,8 @@
       "logoAlt": "Capital letters N & P with a square at right bottom and left top with a dot at right top, text white on blue duck background",
       "description": "My first monolithic portfolio with Symfony. I made admin panel, design, and all the code. It was a good experience to improve my skills.",
       "state": "online",
-      "url": "https://npdeveloper.fr/"
+      "url": "https://npdeveloper.fr/",
+      "repository": "https://github.com/NicolasPi-maker/Portfoliov1.git"
     },
     {
       "title": "Real Estate admin panel",
@@ -46,7 +51,8 @@
       "logoAlt": "3D house with a roof and a chimney, with a tree and a sun",
       "description": "I made an admin panel for a real estate agency in my web agency. It's a tool to manage real estate adverts",
       "state": "private",
-      "url": null
+      "url": null,
+      "repository": null
     }
   ]
 }

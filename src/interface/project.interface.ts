@@ -5,4 +5,5 @@ export interface ProjectInterface {
     "description": string,
     "state": string,
     "url": string | null
+    "repository": string | null
 }
