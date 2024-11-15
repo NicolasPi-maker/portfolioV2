@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
+import profile from "../../assets/img/profile_pic_compressed.webp";
 ---
 
 <div class="m-auto profile-pic-wrapper relative flex justify-center xl:m-10">
-    <img src="/src/assets/img/profile_pic_compressed.webp" alt="me who smalling in black and white colors" class="rounded-2xl relative" />
+    <Image src={profile} alt="me who smalling in black and white colors" class="rounded-2xl relative" loading="eager" />
 </div>
 
 <style>
