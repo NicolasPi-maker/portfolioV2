@@ -1,51 +1,49 @@
 ---
-import { Image } from 'astro:assets';
-import profile from "../../assets/img/profile_pic_compressed.webp";
 ---
 
 <div class="m-auto profile-pic-wrapper relative flex justify-center xl:m-10">
-    <Image src={profile} alt="me who smalling in black and white colors" class="rounded-2xl relative" />
+    <img src="/src/assets/img/profile_pic_compressed.webp" alt="me who smalling in black and white colors" class="rounded-2xl relative" />
 </div>
 
 <style>
-  .profile-pic-wrapper::after {
-    content: '';
-    position: absolute;
-    padding: 20px;
-    top: 50%;
-    right: 50%;
-    z-index: -1;
-    transform: translate(50%, -50%);
-    filter: blur(50px);
-    background: var(--primary-gradient);
-    animation: aura-rotation 5s linear infinite;
-    opacity: 0.4;
-  }
+    @media (min-width: 768px) {
+    .profile-pic-wrapper::after {
+      content: '';
+      position: absolute;
+      padding: 20px;
+      top: 50%;
+      right: 50%;
+      z-index: -1;
+      transform: translate(50%, -50%);
+      filter: blur(50px);
+      background: var(--primary-gradient);
+      animation: aura-rotation 5s linear infinite;
+      opacity: 0.4;
+    }
 
-  .profile-pic-wrapper::after {
-    width: 100%;
-    height: 100%;
-  }
+    .profile-pic-wrapper::after {
+      width: 100%;
+      height: 100%;
+    }
 
-  @keyframes aura-rotation {
-    0% {
-      transform: translate(50%, -50%) scale(1);
+    @keyframes aura-rotation {
+      0% {
+          transform: translate(50%, -50%) scale(1);
+      }
+      25% {
+          transform: translate(50%, -50%) scale(1.2);
+      }
+      50% {
+          transform: translate(50%, -50%) scale(1.1);
+      }
+      75% {
+          transform: translate(50%, -50%) scale(1.3);
+      }
+      100% {
+          transform: translate(50%, -50%) scale(1);
+      }
     }
-    25% {
-      transform: translate(50%, -50%) scale(1.2);
-    }
-    50% {
-      transform: translate(50%, -50%) scale(1.1);
-    }
-    75% {
-      transform: translate(50%, -50%) scale(1.3);
-    }
-    100% {
-      transform: translate(50%, -50%) scale(1);
-    }
-  }
 
-  @media (min-width: 768px) {
     .profile-pic-wrapper {
       max-width: 300px;
     }
