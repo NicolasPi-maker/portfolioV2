@@ -6,13 +6,30 @@ export function getStaticPaths() {
     return [
         {params: {statusResponse: 'success'}},
         {params: {statusResponse: 'error'}},
+        {params: {statusResponse: 'bot'}}
     ];
 }
 
 const { statusResponse } = Astro.params
 
-const title = statusResponse === 'success' ? 'Message received, Thank you !' : 'Something went wrong, please try again later'
-const subtitle = statusResponse === 'success' ? 'I\'m preparing a coffee and I\'m getting back to you as soon as possible.' : 'Send me an email at pinier74nicolas@gmail.com or a message on my networks'
+let title: string;
+let subtitle = 'Send me an email at pinier74nicolas@gmail.com or a message on my networks';
+
+switch (statusResponse) {
+    case 'success' :
+        title = 'Message received, Thank you !';
+        subtitle = 'I\'m preparing a coffee and I\'m getting back to you as soon as possible.';
+    break;
+    case 'error' :
+        title = 'Something went wrong, please try again later';
+    break;
+    case 'bot' :
+        title = 'You are a bot, please leave me alone'
+        subtitle = 'If you are not a bot, please send me an email at pinier74nicolas@gmail.com or a message on my networks';
+    break
+    default:
+        title = 'Something went wrong, please try again later';
+}
 ---
 <Layout title="Succes message from contact form">
     <main class="p-8 min-h-dvh w-full flex flex-col items-center justify-center gap-8 text-primary">
@@ -28,9 +45,9 @@ const subtitle = statusResponse === 'success' ? 'I\'m preparing a coffee and I\'
             <path fill="currentColor" d="M1024 0q141 0 272 36t244 104t207 160t161 207t103 245t37 272q0 141-36 272t-104 244t-160 207t-207 161t-245 103t-272 37q-141 0-272-36t-244-104t-207-160t-161-207t-103-245t-37-272q0-141 36-272t104-244t160-207t207-161T752 37t272-37m0 1920q124 0 238-32t214-90t181-140t140-181t91-214t32-239t-32-238t-90-214t-140-181t-181-140t-214-91t-239-32t-238 32t-214 90t-181 140t-140 181t-91 214t-32 239t32 238t90 214t140 181t181 140t214 91t239 32m443-1249l-352 353l352 353l-90 90l-353-352l-353 352l-90-90l352-353l-352-353l90-90l353 352l353-352z" />
         </svg>
         }
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col items-center gap-4">
             <h1 class="text-4xl alatsi-regular text-center ">{ title }</h1>
-            <p class="text-center text-text-default">{ subtitle }</p>
+            <p class="md:w-2/3 text-center text-text-default">{ subtitle }</p>
         </div>
         <ButtonLink url="/" label="Back to home" outlined={true} />
     </main>

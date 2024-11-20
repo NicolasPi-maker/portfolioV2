@@ -134,6 +134,8 @@ import type {ContactFieldInterface} from "../../interface/contactField.interface
         formData.forEach((value, key) => {
             if(key === 'secret' && value === 'on'){
                 errors = true;
+                window.location.replace('/contact/bot');
+                contactForm.reset();
             }
 
             if(!switchValidation(key)){
@@ -196,18 +198,20 @@ import type {ContactFieldInterface} from "../../interface/contactField.interface
     }
 
     const toggleError = (field) => {
-        const inputElement = field.value;
-        const errorMessage = createError(field.errorMessages.invalid);
+        if(field.value) {
+            const inputElement = field.value;
+            const errorMessage = createError(field.errorMessages.invalid);
 
-        if (switchValidation(field.name)) {
-            const existingError = inputElement.nextElementSibling;
-            if (existingError && existingError.classList.contains('error-message')) {
-                existingError.remove();
-            }
-        } else {
-            const existingError = inputElement.nextElementSibling;
-            if (!existingError || !existingError.classList.contains('error-message')) {
-                inputElement.insertAdjacentElement('afterend', errorMessage);
+            if (switchValidation(field.name)) {
+                const existingError = inputElement.nextElementSibling;
+                if (existingError && existingError.classList.contains('error-message')) {
+                    existingError.remove();
+                }
+            } else {
+                const existingError = inputElement.nextElementSibling;
+                if (!existingError || !existingError.classList.contains('error-message')) {
+                    inputElement.insertAdjacentElement('afterend', errorMessage);
+                }
             }
         }
     }
