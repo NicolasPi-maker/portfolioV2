@@ -6,9 +6,14 @@ import AboutContent from "../components/about/AboutContent.astro";
 import ProjectContent from "../components/project/ProjectContent.astro";
 import EngagementContent from "../components/engagement/EngagementContent.astro";
 import FooterContent from "../components/footer/FooterContent.astro";
+
+const metaDescription = "Passionate web developer with expertise in modern technologies, " +
+	"dedicated to delivering high-quality projects. At 27 years old, I bring motivation, curiosity, " +
+	"and a strong foundation in web development to every challenge. Constantly learning and improving, " +
+	"I strive for excellence in the ever-evolving tech industry."
 ---
 
-<Layout title="Pinier Nicolas web developper">
+<Layout title="Pinier Nicolas web developper" metaDescription={metaDescription}>
 	<BottomNavBar />
 	<header id="home" class="flex flex-col min-h-dvh w-full">
 		<HeaderContent />
