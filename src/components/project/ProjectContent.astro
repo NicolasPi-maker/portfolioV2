@@ -7,7 +7,7 @@ const projectList = projects.data as [ProjectInterface];
 ---
 
 <h2 class="text-4xl alatsi-regular">My recent <span class="text-gradient">work</span></h2>
-<ul class="flex flex-col gap-20 md:grid grid-cols-2 xl:grid-cols-3 xl:w-3/4 2xl:w-2/3">
+<ul class="flex flex-col gap-20 md:grid grid-cols-2 xl:grid-cols-3 xl:w-3/4 2xl:w-4/5">
   {projectList.map((project, index) => {
     return (
       <li id={`project-${index}`}>
