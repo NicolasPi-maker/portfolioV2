@@ -1,6 +1,26 @@
 {
   "data": [
     {
+      "title": "Velora",
+      "logoPath": "/src/assets/project/logos/velora.webp",
+      "logoAlt": "Minimalist and modern logo featuring a 3D hexagonal design with layered geometric shapes in shades of blue and gray, creating a sense of depth and innovation. The logo is set against a clean, light background, emphasizing its sleek and futuristic appearance.",
+      "description": "Landing page to discover Velora, the future of manufacturing powered by the latest technology.",
+      "state": "online",
+      "url": "https://company-landing-example.vercel.app/",
+      "repository": "https://company-landing-example.vercel.app/",
+      "isNew": true
+    },
+    {
+      "title": "Vaultflow",
+      "logoPath": "/src/assets/project/logos/vaultflow.png",
+      "logoAlt": "Vaultflow logo, a V with a keyhole in the middle",
+      "description": "Landing page for Vaultflow  a new way to manage your company's finances.",
+      "state": "online",
+      "url": "https://landing-example-iota.vercel.app/",
+      "repository": "https://github.com/NicolasPi-maker/landing_example",
+        "isNew": true
+    },
+    {
       "title": "ApiMill V3",
       "logoPath": "/src/assets/project/logos/mill.jpg",
       "logoAlt": "Sphere like web sphere with the text: Génération de brochures Apidae",
@@ -26,24 +46,6 @@
       "state": "online",
       "url": "/",
       "repository": "https://github.com/NicolasPi-maker/portfolioV2.git"
-    },
-    {
-      "title": "Wordpress plugins",
-      "logoPath": "/src/assets/project/logos/wp.png",
-      "logoAlt": "Blue W with blue circle around (wordpress logo)",
-      "description": "I made some wordpress plugins for my web agency customers, like a plugin to scrap google-review or a plugin to get ski domains datas easily.",
-      "state": "private",
-      "url": null,
-      "repository": null
-    },
-    {
-      "title": "Old Portfolio",
-      "logoPath": "/src/assets/project/logos/old_pf.jpg",
-      "logoAlt": "Capital letters N & P with a square at right bottom and left top with a dot at right top, text white on blue duck background",
-      "description": "My first monolithic portfolio with Symfony. I made admin panel, design, and all the code. It was a good experience to improve my skills.",
-      "state": "online",
-      "url": "https://npdeveloper.fr/",
-      "repository": "https://github.com/NicolasPi-maker/Portfoliov1.git"
     },
     {
       "title": "Real Estate admin panel",

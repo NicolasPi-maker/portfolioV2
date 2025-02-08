@@ -19,6 +19,7 @@ const projectList = projects.data as [ProjectInterface];
                   title={project.title}
                   description={project.description}
                   repository={project.repository}
+                  isNew={project?.isNew}
           />
       </li>
     );
