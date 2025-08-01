@@ -1,14 +1,33 @@
 {
   "data": [
     {
+      "title": "Ma paillette",
+      "logoPath": "/src/assets/project/logos/ma_paillette.svg",
+      "logoAlt": "site title write with gradient color",
+      "description": "full custom e-commerce website builded with Wordpress & Woocommerce (shipping, promotion & payment connection)",
+      "state": "online",
+      "url": "https://www.mapaillette.com/",
+      "repository": null,
+      "isNew": true
+    },
+    {
+      "title": "Occitan",
+      "logoPath": "/src/assets/project/logos/occitan.png",
+      "logoAlt": "White uppercass O letter with light blue background color in a square",
+      "description": "Blog editing website builded with a full custom Wordpress theme and a customised tiny mce editor to allow copy paste from Word without loosing text format",
+      "state": "online",
+      "url": "https://www.occitan.org/",
+      "repository": null,
+      "isNew": true
+    },
+    {
       "title": "Velora",
       "logoPath": "/src/assets/project/logos/velora.webp",
       "logoAlt": "Minimalist and modern logo featuring a 3D hexagonal design with layered geometric shapes in shades of blue and gray, creating a sense of depth and innovation. The logo is set against a clean, light background, emphasizing its sleek and futuristic appearance.",
       "description": "Landing page to discover Velora, the future of manufacturing powered by the latest technology.",
       "state": "online",
       "url": "https://company-landing-example.vercel.app/",
-      "repository": "https://company-landing-example.vercel.app/",
-      "isNew": true
+      "repository": "https://company-landing-example.vercel.app/"
     },
     {
       "title": "Vaultflow",
@@ -17,8 +36,7 @@
       "description": "Landing page for Vaultflow  a new way to manage your company's finances.",
       "state": "online",
       "url": "https://landing-example-iota.vercel.app/",
-      "repository": "https://github.com/NicolasPi-maker/landing_example",
-        "isNew": true
+      "repository": "https://github.com/NicolasPi-maker/landing_example"
     },
     {
       "title": "ApiMill V3",
