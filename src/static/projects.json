@@ -2,7 +2,7 @@
   "data": [
     {
       "title": "Ma paillette",
-      "logoPath": "/src/assets/project/logos/ma_paillette.svg",
+      "logoPath": "/src/assets/project/logos/mapaillette.svg",
       "logoAlt": "site title write with gradient color",
       "description": "full custom e-commerce website builded with Wordpress & Woocommerce (shipping, promotion & payment connection)",
       "state": "online",
